@@ -1,0 +1,88 @@
+#main {
+    background-image: url(./assets/blurred_screen.png);
+    height: 100vh;
+    background-position: center;
+    display: flex;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+}
+
+.fw-normal {
+    font-weight: 400!important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem!important;
+}
+
+.h3, h3 {
+    font-size: calc(1.3rem + .6vw);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color,inherit);
+}
+
+.h1, h1 {
+    font-size: calc(1.375rem + 1.5vw);
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+#login-btn {
+    background-color: #ffffff7a;
+    border: 0;
+    border-radius: 50px;
+    color: #202020b2;
+    font-weight: 400;
+}
+
+#login-btn:hover {
+    background-color: #c0c0c040;
+    border: 0;
+    border-radius: 50px;
+}
+
+#login-box {
+    background-color: rgba(197, 197, 197, 0.397);
+    border-radius: 70px;
+    width: 400px;
+}
+
+#test {
+    display: flex;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 5px 0px rgba(94, 94, 94, 0.603);
+    outline: none;
+    border-color: grey;
+}
+
+.form-check-input:checked {
+    background-color: rgb(97, 97, 97);
+    border-color: grey;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px 0px rgba(94, 94, 94, 0.603);
+    border-color: grey;
+}
+
+#copyright {
+    font-weight: 300;
+}

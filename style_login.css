@@ -52,6 +52,20 @@
     border-radius: 50px;
 }
 
+#register-btn {
+    background-color: #20202033;
+    border: 0;
+    border-radius: 50px;
+    color: #202020b2;
+    font-weight: 400;
+}
+
+#register-btn:hover {
+    background-color: #5e5e5e3b;
+    border: 0;
+    border-radius: 50px;
+}
+
 #login-box {
     background-color: rgba(197, 197, 197, 0.397);
     border-radius: 70px;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,108 +17,87 @@
   <section id="main">
     <main class="w-100 m-auto text-center justify-content-center">
       <img class="mb-4" src="./assets/ChilloutLogo_2.png" alt="chillout logo" height="50px">
-      <form id="test" class="d-flex justify-content-center">
+      <form id="login-form" class="d-flex justify-content-center">
         <div id="login-box" class="p-5 mx-auto">
           <h1 class="h3 mb-2 fw-bold">Welcome Back.</h1>
           <p class="mb-4">Fill in your log in details below.</p>
           <div class="form-floating">
-            <input type="email" class="form-control mb-3" id="floatingInput" placeholder="name@example.com" fdprocessedid="ios2u9">
-            <label for="floatingInput" class="opacity-75">Your Email</label>
+            <input type="email" class="form-control mb-3" id="login-email" placeholder="name@example.com" fdprocessedid="ios2u9">
+            <label for="login-email" class="opacity-75">Your Email</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Password" fdprocessedid="o92i79">
-            <label for="floatingPassword" class="opacity-75">Your Password</label>
+            <input type="password" class="form-control mb-3" id="login-password" placeholder="Password" fdprocessedid="o92i79">
+            <label for="login-password" class="opacity-75">Your Password</label>
           </div>
           <div class="checkbox mb-3">
             <input class="form-check-input mx-1" type="checkbox" id="remember-me-checkbox" value="remember-me">
             <label for="remember-me-checkbox">Remember me</label>
           </div>
-            <button class="w-100 btn btn-lg btn-primary mb-3" id="login-btn" type="submit" fdprocessedid="5vd71">Log In</button>
-            <button class="w-100 btn btn-lg btn-primary" id="register-btn" type="submit" fdprocessedid="5vd71">Register</button>       
+          <button class="w-100 btn btn-lg btn-primary mb-3" id="login-btn" type="submit" fdprocessedid="5vd71">Log In</button>
+          <a href="signup.html" class="w-100 btn btn-lg btn-primary" id="register-btn" fdprocessedid="5vd71">Register</a>
         </div>
       </form>
       <p id="copyright" class="mt-4 mb-3 text-white opacity-25">Chillout © 2017–2023</p>
     </main>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYdMqSM8r4/lU0U8" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
     
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
-      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
-      
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyCMhPiC7FV648KF-6AyGagFaO3FKPx1yKs",
-        authDomain: "chillout-6b65e.firebaseapp.com",
-        databaseURL: "https://chillout-6b65e-default-rtdb.firebaseio.com",
-        projectId: "chillout-6b65e",
-        storageBucket: "chillout-6b65e.appspot.com",
-        messagingSenderId: "360712766749",
-        appId: "1:360712766749:web:dcc3738245a071809dcdf4",
-        measurementId: "G-MH2G4TL795"
-      };
-      
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      
-      // Get a reference to the auth service
-      const auth = getAuth();
-      
-      // Get a reference to the database service
-      const database = getDatabase();
-      
-      // Get references to the HTML elements
-      const emailInput = document.getElementById('floatingInput');
-      const passwordInput = document.getElementById('floatingPassword');
-      const registerButton = document.getElementById('register-btn');
-      const loginButton = document.getElementById('login-btn');
-      
-      // Add an event listener for the register button
-      registerButton.addEventListener('click', async (e) => {
-        // Prevent the default form submission
-        e.preventDefault();
-      
-        try {
-            // Create the user
-            const userCredential = await createUserWithEmailAndPassword(auth, emailInput.value, passwordInput.value);
-            const user = userCredential.user;
-      
-            // Add the new user to the database
-            await set(ref(database, 'users/' + user.uid), {
-                email: user.email,
-            });
-      
-            alert('User registered successfully.');
-        } catch (error) {
-            alert('Failed to register user: ' + error.message);
-        }
-      });
-      
-      // Add an event listener for the login button
-      loginButton.addEventListener('click', async (e) => {
-        // Prevent the default form submission
-        e.preventDefault();
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMhPiC7FV648KF-6AyGagFaO3FKPx1yKs",
+      authDomain: "chillout-6b65e.firebaseapp.com",
+      databaseURL: "https://chillout-6b65e-default-rtdb.firebaseio.com",
+      projectId: "chillout-6b65e",
+      storageBucket: "chillout-6b65e.appspot.com",
+      messagingSenderId: "360712766749",
+      appId: "1:360712766749:web:dcc3738245a071809dcdf4",
+      measurementId: "G-MH2G4TL795"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    
+    // Get a reference to the auth service
+    const auth = getAuth();
+    
+    // Get a reference to the database service
+    const database = getDatabase();
+    
+    // Get references to the HTML elements
+    const emailInput = document.getElementById('login-email');
+    const passwordInput = document.getElementById('login-password');
+    const loginButton = document.getElementById('login-btn');
+  
+    // Add an event listener for the login button
+    loginButton.addEventListener('click', async (e) => {
+      // Prevent the default form submission
+      e.preventDefault();
 
-        try {
-            // Login the user
-            const userCredential = await signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value);
-            const user = userCredential.user;
+      try {
+          // Login the user
+          const userCredential = await signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value);
+          const user = userCredential.user;
 
-            alert('User logged in successfully.');
+          alert('User logged in successfully.');
 
-            // Redirect to the home page
-            window.location.href = "breathe.html";
-        } catch (error) {
-            alert('Failed to log in user: ' + error.message);
-        }
-      });
-      </script>
-      
+          // Redirect to the home page
+          window.location.href = "breathe.html";
+      } catch (error) {
+          alert('Failed to log in user: ' + error.message);
+      }
+    });
+    </script>
 
 </body>
+
 </html>

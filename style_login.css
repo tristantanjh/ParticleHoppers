@@ -46,7 +46,21 @@
     font-weight: 400;
 }
 
+#signup-btn {
+    background-color: #ffffff7a;
+    border: 0;
+    border-radius: 50px;
+    color: #202020b2;
+    font-weight: 400;
+}
+
 #login-btn:hover {
+    background-color: #c0c0c075;
+    border: 0;
+    border-radius: 50px;
+}
+
+#signup-btn:hover {
     background-color: #c0c0c075;
     border: 0;
     border-radius: 50px;
@@ -67,6 +81,12 @@
 }
 
 #login-box {
+    background-color: rgba(197, 197, 197, 0.397);
+    border-radius: 70px;
+    width: 400px;
+}
+
+#signup-box {
     background-color: rgba(197, 197, 197, 0.397);
     border-radius: 70px;
     width: 400px;

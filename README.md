@@ -12,7 +12,7 @@ A user-friendly, all-in-one web application for mental wellbeing, offering guide
 - Proposed Proposed Level of Achievement: Project Gemini
 
 ## Links to Project Materials
-:link: [Project Log]() <br />
+:link: [Project Log](https://docs.google.com/spreadsheets/d/1cML4a_aWpPTm2hQLwyhGzjmt5MItagE3rgn5ERFA23M/edit?usp=sharing) <br />
 #### Milestone 1:
 :link: [Project Poster](https://drive.google.com/file/d/1wKMOjY1evthR4v6OxI13As8c7c-RTsiU/view?usp=share_link) <br />
 :link: [Project Video](https://drive.google.com/file/d/1SaEuSlFxoPv6LiglToKESfpwx5Rzdj6P/view?usp=share_link) <br />

@@ -15,9 +15,9 @@ function breathAnimation() {
   text.innerText = 'Breathe In!';
   container.className = 'container grow';
 
-  // Reset the pointer rotation animation
+  //start pointer rotation 
   pointerContainer.style.animation = 'none';
-  pointerContainer.offsetHeight; // Trigger a reflow
+  pointerContainer.offsetHeight; 
   pointerContainer.style.animation = 'rotate 7.5s linear forwards infinite';
 
   setTimeout(() => {

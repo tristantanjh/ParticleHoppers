@@ -20,7 +20,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/orbitalUserDB");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.use(session({
-    secret: process.env.ENCRYPTION_KEY,
+    secret: "12431241234234123",
     resave: false,
     saveUninitialized: false
 }));
@@ -45,7 +45,6 @@ app.route("/")
     .get((req, res) => {
         res.render("home");
     });
-
 
 app.listen(3000, function() {
     console.log("Server started on port 3000");

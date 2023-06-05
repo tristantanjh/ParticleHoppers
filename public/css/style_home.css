@@ -1,0 +1,63 @@
+#main {
+    background-image: url(/assets/main_page.png);
+    height: 100vh;
+    background-position: center;
+}
+
+#login-btn {
+    background-color: #FFFFFF25;
+    border: 0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#login-btn:hover {
+    background-color: #FFFFFF40;
+    border: 0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.main-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center align the content */
+    justify-content: center; /* Horizontally center align the content */
+    height: 75vh;
+}
+
+.mission-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center align the content */
+    justify-content: center; /* Horizontally center align the content */
+    height: 50vh;
+}
+
+#begin-btn {
+    background-color: #FFFFFF25;
+    border: 0;
+    border-radius: 50px;
+}
+
+#begin-btn:hover {
+    background-color: #FFFFFF40;
+    border: 0;
+    border-radius: 50px;
+}
+
+.main-text {
+    color: #183049;
+}
+
+#mission {
+    background-image: url(/assets/blurred_screen.png);
+    height: 50vh;
+    background-position: center;
+}
+
+.mission-text {
+    color: #ffffff;
+}

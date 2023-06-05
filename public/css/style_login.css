@@ -1,5 +1,5 @@
 #main {
-    background-image: url(./assets/blurred_screen.png);
+    background-image: url(/assets/blurred_screen.png);
     height: 100vh;
     background-position: center;
     display: flex;

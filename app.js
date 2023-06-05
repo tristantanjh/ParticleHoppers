@@ -84,6 +84,15 @@ app.route("/register")
         })
     });
 
+app.route("/breathe")
+    .get((req, res) => {
+        if (req.isAuthenticated()) {
+            res.render("breathe");
+        } else {
+            res.redirect("/login");
+        }
+    });
+
 app.listen(3000, function() {
     console.log("Server started on port 3000");
     });

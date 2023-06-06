@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+const flash = require("connect-flash");
 
 // creating application using express
 
@@ -26,6 +27,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 const userSchema = new mongoose.Schema({
     email: String,
@@ -58,38 +60,15 @@ app.route("/login")
       if (req.isAuthenticated()) {
         res.render("breathe");
       } else {
-        res.render("login", { error: false });
+        res.render("login", { error: "Incorrect username or password. Please try again." });
       }
     })
-    .post((req, res) => {
-      const user = new User({
-        username: req.body.username,
-        password: req.body.password
-      });
-  
-      req.login(user, (err) => {
-        if (err) {
-          console.log(err);
-          res.status(401).json({ error: "Incorrect username or password" });
-        } else {
-          passport.authenticate("local", (err, user, info) => {
-            if (err) {
-              console.log(err);
-              return res.status(500).json({ error: "Internal server error" });
-            }
-            if (!user) {
-              return res.status(401).json({ error: "Incorrect username or password" });
-            }
-            req.logIn(user, (err) => {
-              if (err) {
-                console.log(err);
-                return res.status(500).json({ error: "Internal server error" });
-              }
-              return res.status(200).json({ success: true });
-            });
-          })(req, res);
-        }
-      });
+    .post(passport.authenticate("local", {
+        successRedirect: "/breathe",
+        failureRedirect: "/login",
+        failureFlash: true
+    }), (req, res) => {
+        res.redirect("/login");
     });
 
 app.route("/register")

@@ -124,3 +124,11 @@ body {
 #copyright {
     font-weight: 300;
 }
+
+#redirect-login {
+    color: rgba(255, 255, 255, 0.808);
+}
+
+#redirect-login:hover {
+    color: #202020b2;
+}

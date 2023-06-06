@@ -60,7 +60,8 @@ app.route("/login")
       if (req.isAuthenticated()) {
         res.render("breathe");
       } else {
-        res.render("login", { error: "Incorrect username or password. Please try again." });
+        const errorMessage = req.flash("error")[0];
+        res.render("login", { error: errorMessage });
       }
     })
     .post(passport.authenticate("local", {
@@ -68,6 +69,9 @@ app.route("/login")
         failureRedirect: "/login",
         failureFlash: true
     }), (req, res) => {
+        // Flash a specific error message
+        req.flash("error", "Invalid username or password.");
+        // Redirect back to the login page
         res.redirect("/login");
     });
 

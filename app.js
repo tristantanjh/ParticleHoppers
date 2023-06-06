@@ -15,7 +15,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const app = express();
 
 app.set('view engine', 'ejs');
-mongoose.connect("mongodb://127.0.0.1:27017/orbitalUserDB");
+mongoose.connect("mongodb+srv://admin-1:" + process.env.MONGO_ADMIN_1_PASSWORD + "@chillout.tqvbohs.mongodb.net/orbitalUserDB");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -45,36 +45,57 @@ app.route("/")
         res.render("home");
     });
 
+app.route("/logout")
+    .get((req, res) => {
+        req.logout((err) => {
+            console.log(err);
+        });
+        res.redirect("/");
+    });
+
 app.route("/login")
     .get((req, res) => {
-        if (req.isAuthenticated()) {
-            res.render("breathe");
-        } else {
-            res.render("login");
-        }
+      if (req.isAuthenticated()) {
+        res.render("breathe");
+      } else {
+        res.render("login", { error: false });
+      }
     })
     .post((req, res) => {
-        const user = new User({
-            username: req.body.username,
-            password: req.body.password
-        });
-
-        req.login(user, (err) => {
+      const user = new User({
+        username: req.body.username,
+        password: req.body.password
+      });
+  
+      req.login(user, (err) => {
+        if (err) {
+          console.log(err);
+          res.status(401).json({ error: "Incorrect username or password" });
+        } else {
+          passport.authenticate("local", (err, user, info) => {
             if (err) {
-                console.log(err);
-                res.redirect("/login");
-            } else {
-                passport.authenticate("local")(req, res, () => {
-                    res.redirect("/breathe");
-                });
+              console.log(err);
+              return res.status(500).json({ error: "Internal server error" });
             }
-        });
+            if (!user) {
+              return res.status(401).json({ error: "Incorrect username or password" });
+            }
+            req.logIn(user, (err) => {
+              if (err) {
+                console.log(err);
+                return res.status(500).json({ error: "Internal server error" });
+              }
+              return res.status(200).json({ success: true });
+            });
+          })(req, res);
+        }
+      });
     });
 
 app.route("/register")
     .get((req, res) => {
         if (req.isAuthenticated()) {
-            res.render("breathe");
+            res.redirect("/breathe");
         } else {
             res.render("register");
         }
@@ -109,14 +130,6 @@ app.route("/quote")
             res.redirect("/login");
         }
     });
-
-app.route("/logout")
-    .get((req, res) => {
-        req.logout((err) => {
-            console.log(err);
-        });
-        res.redirect("/");
-    })
 
 app.listen(3000, function() {
     console.log("Server started on port 3000");

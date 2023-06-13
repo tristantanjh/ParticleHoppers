@@ -19,9 +19,7 @@ A user-friendly, all-in-one web application for mental wellbeing, offering guide
 :link: [Figma Mockup](https://www.figma.com/proto/GEaP6orIS4Les171C551vj/Mockups?node-id=1-55&starting-point-node-id=1%3A55) <br />
 
 ### Motivation
-The transition from a more relaxed lifestyle to the fast-paced environment of university can be challenging for many freshmen. From our experiences, many students struggle with the sudden increase in pace of life, particularly in academically rigorous courses. Often, they are not equipped with the necessary tools to handle their emotions and feelings of being overwhelmed, leading to stress and anxiety.
-
-The transition from a more relaxed lifestyle to the fast-paced environment of university is a significant change for many freshmen. University life is often characterized by demanding coursework, tight schedules, and competing priorities, which can be overwhelming for students who are not used to it. The sudden increase in pace of life can be particularly challenging for students in academically rigorous courses, who may find it difficult to keep up with the demanding workload.
+The transition from a more relaxed lifestyle to the fast-paced environment of university can be challenging for many freshmen.  University life is often characterized by demanding coursework, tight schedules, and competing priorities, which can be overwhelming for students who are not used to it. The sudden increase in pace of life can be particularly challenging for students in academically rigorous courses, who may find it difficult to keep up with the demanding workload
 
 Moreover, many students may not be equipped with the necessary tools to manage their stress and anxiety effectively. They may not have had previous experiences dealing with high-pressure situations or may have relied on different coping mechanisms before entering university. The lack of preparation can exacerbate feelings of being overwhelmed, leading to stress and anxiety.
 

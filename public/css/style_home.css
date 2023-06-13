@@ -1,5 +1,5 @@
 #main {
-    background-image: url(./assets/main_page.png);
+    background-image: url(/assets/main_page.png);
     height: 100vh;
     background-position: center;
 }
@@ -53,7 +53,7 @@
 }
 
 #mission {
-    background-image: url(./assets/blurred_screen.png);
+    background-image: url(/assets/blurred_screen.png);
     height: 50vh;
     background-position: center;
 }

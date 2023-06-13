@@ -1,5 +1,5 @@
 #main {
-    background-image: url(./assets/blurred_screen.png);
+    background-image: url(/assets/blurred_screen.png);
     height: 100vh;
     background-position: center;
     display: flex;
@@ -123,4 +123,12 @@ body {
 
 #copyright {
     font-weight: 300;
+}
+
+#redirect-login {
+    color: rgba(255, 255, 255, 0.808);
+}
+
+#redirect-login:hover {
+    color: #202020b2;
 }

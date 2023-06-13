@@ -18,6 +18,21 @@ A user-friendly, all-in-one web application for mental wellbeing, offering guide
 :link: [Project Video](https://drive.google.com/file/d/1SaEuSlFxoPv6LiglToKESfpwx5Rzdj6P/view?usp=share_link) <br />
 :link: [Figma Mockup](https://www.figma.com/proto/GEaP6orIS4Les171C551vj/Mockups?node-id=1-55&starting-point-node-id=1%3A55) <br />
 
+## Installation
+- Install Node.js from their [website](https://nodejs.org/en).
+- Install Nodemon (if not already installed):
+```bash
+npm install -g nodemon
+```
+- After that, run these commands in the terminal:
+```bash
+git clone https://github.com/tristantanjh/ParticleHoppers.git
+cd ParticleHoppers 
+npm install
+nodemon
+```
+- Finally, explore our app by going to `localhost:3000` in your browser!
+
 ### Motivation
 The transition from a more relaxed lifestyle to the fast-paced environment of university can be challenging for many freshmen.  University life is often characterized by demanding coursework, tight schedules, and competing priorities, which can be overwhelming for students who are not used to it. The sudden increase in pace of life can be particularly challenging for students in academically rigorous courses, who may find it difficult to keep up with the demanding workload
 

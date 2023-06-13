@@ -28,6 +28,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use('/scripts', express.static('scripts', { "extensions": ["js"] }));
 
 const userSchema = new mongoose.Schema({
     email: String,

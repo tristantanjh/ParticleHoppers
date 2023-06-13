@@ -1,7 +1,7 @@
 const container = document.getElementById('container');
 const text = document.getElementById('text');
 const pointerContainer = document.querySelector('.pointer-container');
-const calmingSound = new Audio('assets/calmSound.mp3'); // Create an Audio object with the sound file
+const calmingSound = new Audio('/assets/calmSound.mp3'); // Create an Audio object with the sound file
 
 let animationInterval;
 let redirectTimeout;
@@ -42,6 +42,6 @@ function breathAnimation() {
   animationInterval = setInterval(breathAnimation, totalTime); // put before breathanimation?
   redirectTimeout = setTimeout(() => {
     text.innerText = 'Finished!';
-    window.location.href = 'index.html'; // Redirect to index.html
+    window.location.href = '/quote'; // Redirect to quote
   }, redirectTime);
 }

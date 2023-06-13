@@ -31,6 +31,7 @@ cd ParticleHoppers
 npm install
 nodemon
 ```
+- Follow the steps in the `.env.example` file before proceeding.
 - Finally, explore our app by going to `localhost:3000` in your browser!
 
 ---

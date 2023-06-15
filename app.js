@@ -45,7 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.route("/")
     .get((req, res) => {
-        res.render("home");
+        res.render("home", { pageTitle: "Home" });
     });
 
 app.route("/logout")
@@ -62,7 +62,7 @@ app.route("/login")
         res.render("breathe");
       } else {
         const errorMessage = req.flash("error")[0];
-        res.render("login", { error: errorMessage });
+        res.render("login", { error: errorMessage, pageTitle: "Login" });
       }
     })
     .post(passport.authenticate("local", {
@@ -81,7 +81,7 @@ app.route("/register")
         if (req.isAuthenticated()) {
             res.redirect("/breathe");
         } else {
-            res.render("register");
+            res.render("register", { pageTitle: "Register" });
         }
     })
     .post((req, res) => {
@@ -109,7 +109,7 @@ app.route("/breathe")
 app.route("/quote")
     .get((req, res) => {
         if (req.isAuthenticated()) {
-            res.render("quote");
+            res.render("quote", { pageTitle: "Quote of the Day" });
         } else {
             res.redirect("/login");
         }

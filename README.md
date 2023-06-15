@@ -31,12 +31,13 @@ cd ParticleHoppers
 npm install
 nodemon
 ```
+- Follow the steps in the `.env.example` file before proceeding.
 - Finally, explore our app by going to `localhost:3000` in your browser!
 
 ---
 
 ### Motivation
-The transition from a more relaxed lifestyle to the fast-paced environment of university can be challenging for many freshmen.  University life is often characterized by demanding coursework, tight schedules, and competing priorities, which can be overwhelming for students who are not used to it. The sudden increase in pace of life can be particularly challenging for students in academically rigorous courses, who may find it difficult to keep up with the demanding workload
+The transition from a more relaxed lifestyle to the fast-paced environment of university can be challenging for many freshmen.  University life is often characterized by demanding coursework, tight schedules, and competing priorities, which can be overwhelming for students who are not used to it. The sudden increase in pace of life can be particularly challenging for students in academically rigorous courses, who may find it difficult to keep up with the demanding workload.
 
 Moreover, many students may not be equipped with the necessary tools to manage their stress and anxiety effectively. They may not have had previous experiences dealing with high-pressure situations or may have relied on different coping mechanisms before entering university. The lack of preparation can exacerbate feelings of being overwhelmed, leading to stress and anxiety.
 

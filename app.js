@@ -16,7 +16,7 @@ const flash = require("connect-flash");
 const app = express();
 
 app.set('view engine', 'ejs');
-mongoose.connect("mongodb+srv://admin-1:" + process.env.MONGO_ADMIN_1_PASSWORD + "@chillout.tqvbohs.mongodb.net/orbitalUserDB");
+mongoose.connect("mongodb+srv://user-tester-1:RfpwqXKbLB73sCBl@chillout.tqvbohs.mongodb.net/orbitalUserDB");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));

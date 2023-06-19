@@ -10,6 +10,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const flash = require("connect-flash");
+const fetch = require('node-fetch');
 
 // creating application using express
 
@@ -42,6 +43,9 @@ const User = mongoose.model("User", userSchema);
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+let cachedQuote = null;
+let cacheExpirationTime = null;
 
 app.route("/")
     .get((req, res) => {

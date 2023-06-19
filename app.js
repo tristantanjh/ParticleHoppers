@@ -59,7 +59,7 @@ app.route("/logout")
 app.route("/login")
     .get((req, res) => {
       if (req.isAuthenticated()) {
-        res.render("breathe");
+        res.redirect("/breathe");
       } else {
         const errorMessage = req.flash("error")[0];
         res.render("login", { error: errorMessage, pageTitle: "Login" });

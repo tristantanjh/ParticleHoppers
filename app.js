@@ -9,8 +9,12 @@ app
   .use('/register', require('./routes/register'))
   .use('/breathe', require('./routes/breathe'))
   .use('/quote', require('./routes/quote'))
-  .use('/about', require('./routes/about'))
-  .use('/404', require('./routes/404'));
+  .use('/about', require('./routes/about'));
+
+// Catch-all middleware for handling 404 errors
+app.use((req, res, next) => {
+    res.status(404).render('errors/notFound');
+});
 
 // Starting the server on port 3000
 app.listen(3000, () => {

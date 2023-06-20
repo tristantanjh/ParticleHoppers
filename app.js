@@ -71,7 +71,10 @@ function fetchAndCacheQuote() {
                 // Cache the quote and set the expiration time at 8 AM
                 cachedQuote = { q: quote, a: author }; 
                 cacheExpirationTime = calculateCacheExpiration();
+                
                 // console.log('Quote cached:', cachedQuote);
+                // console.log('Cache expiration time:', cacheExpirationTime);
+
                 resolve();
             });
         });
@@ -167,15 +170,9 @@ app.route("/quote")
             const currentTime = new Date();
             // Check if the cache is expired or not available
             if (!cachedQuote || !cacheExpirationTime || cacheExpirationTime <= 0) {
+                // console.log('Fetching new quote and caching...');
                 await fetchAndCacheQuote();
-            } else if (currentTime.getHours() >= 8) {
-                // Check if the current time is after 8 AM
-                // If yes, update the cache if it hasn't been updated today
-                const cacheExpirationDate = new Date(Date.now() + cacheExpirationTime);
-                if (cacheExpirationDate.getDate() !== currentTime.getDate()) {
-                    await fetchAndCacheQuote();
-                }
-            }
+            } 
             // Send the quote response
             if (cachedQuote && cachedQuote.q && cachedQuote.a) {
                 res.render("quote", { 

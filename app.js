@@ -71,7 +71,7 @@ function fetchAndCacheQuote() {
                 // Cache the quote and set the expiration time at 8 AM
                 cachedQuote = { q: quote, a: author }; 
                 cacheExpirationTime = calculateCacheExpiration();
-                console.log('Quote cached:', cachedQuote);
+                // console.log('Quote cached:', cachedQuote);
                 resolve();
             });
         });
@@ -177,7 +177,6 @@ app.route("/quote")
                 }
             }
             // Send the quote response
-            console.log(cachedQuote);
             if (cachedQuote && cachedQuote.q && cachedQuote.a) {
                 res.render("quote", { 
                     pageTitle: "Quote of the Day",

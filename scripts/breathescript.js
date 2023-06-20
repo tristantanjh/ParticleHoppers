@@ -3,13 +3,17 @@ const text = document.getElementById('text');
 const pointerContainer = document.querySelector('.pointer-container');
 const calmingSound = new Audio('assets/calmSound.mp3'); // Create an Audio object with the sound file
 const breathsText = document.querySelector(".breaths-text");
-let breathsLeft = 3; 
+let breathsLeft = 4; //set as 4 cos we want 3 cycles, but because of  
 
 let animationInterval;
 let redirectTimeout;
 let hold;
 let breathe;
+let threeWait;
+let twoWait;
+let oneWait;
 let animationStarted = false; // Flag variable to track animation state
+let exhaleStart = false;
 
 container.addEventListener('click', () => {
   //breathsText.innerText = breathsLeft;
@@ -27,6 +31,7 @@ const holdTime = totalTime / 5;
 const redirectTime = 7500 * 5; // Time after which to redirect in milliseconds (5 cycles)
 
 function breathAnimation() {
+  exhaleStart = false;
   breathsText.innerText = breathsLeft;
   text.innerText = 'Breathe In!';
   container.className = 'container grow';
@@ -41,12 +46,14 @@ function breathAnimation() {
      breathe = setTimeout(() => {
       text.innerText = 'Breathe Out!';
       container.className = 'container shrink';
+      exhaleStart = true;
+      breathsLeft--;
     }, holdTime);
   }, breatheTime);
 
-  breathsLeft--;
   
-  if (breathsLeft <= -1) {
+  
+  if (breathsLeft <= 0) {
     redirect();
   }
 
@@ -55,17 +62,21 @@ function breathAnimation() {
 function start() {
   calmingSound.play();
 
+  if (exhaleStart === false) {
+    breathsLeft--;
+  }
+
   text.innerText = 'starting soon...';
 
-  setTimeout(() => {
+  threeWait = setTimeout(() => {
     text.innerText = '3';
   }, (totalTime - 3000));
 
-  setTimeout(() => {
+  twoWait = setTimeout(() => {
     text.innerText = '2';
   }, (totalTime - 2000));
 
-  setTimeout(() => {
+  oneWait = setTimeout(() => {
     text.innerText = '1';
   }, totalTime - 1000);
 
@@ -83,8 +94,12 @@ function pause() {
   clearInterval(animationInterval);
   clearTimeout(hold);
   clearTimeout(breathe);
+  clearTimeout(threeWait);
+  clearTimeout(twoWait);
+  clearTimeout(oneWait);
   animationStarted = false;
   calmingSound.pause();
+  calmingSound.load(); //restarts audio
 }
 
 function redirect() {

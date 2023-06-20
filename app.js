@@ -1,10 +1,8 @@
 // requiring required packages
-
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-// const _ = require("lodash");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
@@ -13,36 +11,40 @@ const flash = require("connect-flash");
 const https = require("https");
 
 // creating application using express
-
 const app = express();
 
-app.set('view engine', 'ejs');
+// Connecting to MongoDB database
 mongoose.connect("mongodb+srv://user-tester-1:RfpwqXKbLB73sCBl@chillout.tqvbohs.mongodb.net/orbitalUserDB");
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
-app.use(session({
-    secret: process.env.ENCRYPTION_KEY,
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-app.use('/scripts', express.static('scripts', { "extensions": ["js"] }));
+app
+  .set("view engine", "ejs") // Set EJS as the view engine
+  .use(bodyParser.urlencoded({ extended: true })) // Parse URL-encoded bodies
+  .use(express.static("public")) // Serve static files from the "public" directory
+  .use(
+    session({
+      secret: process.env.ENCRYPTION_KEY, // Secret key for session encryption
+      resave: false, // Do not save session if unmodified
+      saveUninitialized: false, // Do not create session until something is stored
+    })
+  )
+  .use(passport.initialize()) // Initialize Passport.js for authentication
+  .use(passport.session()) // Enable persistent login sessions
+  .use(flash()) // Enable flash messages
+  .use("/scripts", express.static("scripts", { extensions: ["js"] })); // Serve JavaScript files from the "scripts" directory
 
+// Define user schema and model for authentication
 const userSchema = new mongoose.Schema({
     email: String,
     password: String
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose); // Add passport-local-mongoose plugin to handle user authentication
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema); // Create User model
 
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(User.createStrategy()); // Use local strategy for authentication
+passport.serializeUser(User.serializeUser()); // Serialize user for session
+passport.deserializeUser(User.deserializeUser()); // Deserialize user from session
 
 let cachedQuote = null;
 let cacheExpirationTime = null;
@@ -101,11 +103,15 @@ function calculateCacheExpiration() {
     return expirationTime.getTime() - now.getTime();
 }
 
+// Routes and handlers
+
+// Home route
 app.route("/")
     .get((req, res) => {
         res.render("home", { pageTitle: "Home" });
     });
 
+// Logout route
 app.route("/logout")
     .get((req, res) => {
         req.logout((err) => {
@@ -114,11 +120,13 @@ app.route("/logout")
         res.redirect("/");
     });
 
+// Login route
 app.route("/login")
     .get((req, res) => {
       if (req.isAuthenticated()) {
         res.redirect("/breathe");
       } else {
+        // Renders the error message for incorrect username or password
         const errorMessage = req.flash("error")[0];
         res.render("login", { error: errorMessage, pageTitle: "Login" });
       }
@@ -134,6 +142,7 @@ app.route("/login")
         res.redirect("/login");
     });
 
+// Register route
 app.route("/register")
     .get((req, res) => {
         if (req.isAuthenticated()) {
@@ -143,6 +152,7 @@ app.route("/register")
         }
     })
     .post((req, res) => {
+        // Registers new user in database
         User.register({username: req.body.username}, req.body.password, (err, user) => {
             if (err) {
                 console.log(err);
@@ -155,6 +165,7 @@ app.route("/register")
         })
     });
 
+// Breathe route
 app.route("/breathe")
     .get((req, res) => {
         if (req.isAuthenticated()) {
@@ -164,6 +175,7 @@ app.route("/breathe")
         }
     });
 
+// Quote route
 app.route("/quote")
     .get(async (req, res) => {
         if (req.isAuthenticated()) {
@@ -187,15 +199,18 @@ app.route("/quote")
         }
     });
 
+// About route
 app.route("/about")
     .get((req, res) => {
         res.render("about");
     })
 
+// 404 Error Route
 app.get('*', (req, res) => {
     res.status(404).render('404');
 });
 
+// Starting the server on port 3000
 app.listen(3000, function() {
     console.log("Server started on port 3000");
     });

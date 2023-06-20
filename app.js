@@ -2,7 +2,6 @@
 const { app } = require("./config");
 
 // Routes and handlers
-
 app
   .use(require('./routes/home'))
   .use('/logout', require('./routes/logout'))

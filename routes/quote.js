@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { fetchAndCacheQuote, cachedQuote, cacheExpirationTime } = require('../utils/quoteFunctions');
+const { fetchAndCacheQuote, calculateCacheExpiration, cachedQuote } = require('../utils/quoteFunctions');
 
 // Quote route
 router.get("/", async (req, res) => {
     if (req.isAuthenticated()) {
         // Check if the cache is expired or not available
-        if (!cachedQuote() || !cacheExpirationTime() || cacheExpirationTime() <= 0) {
+        if (!cachedQuote() || calculateCacheExpiration() <= 0) {
             // console.log('Fetching new quote and caching...');
             await fetchAndCacheQuote();
         } 

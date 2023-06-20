@@ -1,7 +1,6 @@
 const { https } = require('../config');
 
 let cachedQuote = null;
-let cacheExpirationTime = null;
 
 // Function to fetch a new daily quote from Zenquotes API and update the cache
 function fetchAndCacheQuote() {
@@ -26,7 +25,6 @@ function fetchAndCacheQuote() {
         
                 // Cache the quote and set the expiration time at 8 AM
                 cachedQuote = { q: quote, a: author }; 
-                cacheExpirationTime = calculateCacheExpiration();
 
                 // console.log('Quote cached:', cachedQuote);
                 // console.log('Cache expiration time:', cacheExpirationTime);
@@ -59,6 +57,6 @@ function calculateCacheExpiration() {
 
 module.exports = {
     fetchAndCacheQuote,
-    cachedQuote: () => cachedQuote,
-    cacheExpirationTime: () => cacheExpirationTime
+    calculateCacheExpiration,
+    cachedQuote: () => cachedQuote
 };

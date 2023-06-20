@@ -37,4 +37,5 @@ module.exports = {
   mongoose,
   passport,
   passportLocalMongoose,
+  https,
 };

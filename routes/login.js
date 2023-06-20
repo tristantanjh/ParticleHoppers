@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+const { passport } = require('../user');
 
 router.get("/", (req, res) => {
     // Redirects to Breathe page if already logged in

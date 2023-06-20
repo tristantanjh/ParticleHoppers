@@ -105,42 +105,15 @@ function calculateCacheExpiration() {
 
 // Routes and handlers
 
-// Home route
-app.route("/")
-    .get((req, res) => {
-        res.render("home", { pageTitle: "Home" });
-    });
+const homeRoute = require('./routes/home');
+app.use(homeRoute);
 
-// Logout route
-app.route("/logout")
-    .get((req, res) => {
-        req.logout((err) => {
-            console.log(err);
-        });
-        res.redirect("/");
-    });
+const logoutRoute = require('./routes/logout');
+app.use('/logout', logoutRoute);
 
-// Login route
-app.route("/login")
-    .get((req, res) => {
-      if (req.isAuthenticated()) {
-        res.redirect("/breathe");
-      } else {
-        // Renders the error message for incorrect username or password
-        const errorMessage = req.flash("error")[0];
-        res.render("login", { error: errorMessage, pageTitle: "Login" });
-      }
-    })
-    .post(passport.authenticate("local", {
-        successRedirect: "/breathe",
-        failureRedirect: "/login",
-        failureFlash: true
-    }), (req, res) => {
-        // Flash a specific error message
-        req.flash("error", "Invalid username or password.");
-        // Redirect back to the login page
-        res.redirect("/login");
-    });
+const loginRoute = require('./routes/login');
+app.use('/login', loginRoute);
+
 
 // Register route
 app.route("/register")
@@ -211,6 +184,6 @@ app.get('*', (req, res) => {
 });
 
 // Starting the server on port 3000
-app.listen(3000, function() {
+app.listen(3000, () => {
     console.log("Server started on port 3000");
-    });
+});

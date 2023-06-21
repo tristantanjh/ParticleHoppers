@@ -69,23 +69,15 @@ The meditation exercises and daily affirmations are to be implemented maximally 
 
   - Our unique combination of guided breathing exercises, daily affirmations along with a supportive community, creates a harmonious and user-friendly space for the user’s mental wellbeing needs.
 
-
 ### Tech Stack
-#### Languages:
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
-
-#### Database:
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-
-#### Frameworks:
-![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-
-#### Hosting/SaaS:
-![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
-
-#### Utility:
-![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
+| Tech | Purpose | Reason For Choice | Category |
+| -------- | -------- | -------- | -------- |
+| ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)   | Styling for visual presentation and layout of web pages. | Fundamental in designing an appealing and responsive website. | Language |
+| ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)   | Markup language for structuring web pages and displaying content. | Essential in building complicated web pages. |  Language |
+| ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) | Enables interactivity with the web application. | Gives the web application its functionality by adding interactivity and dynamic behavior to the website on the client-side. |  Language |
+| ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) | NoSQL Database to store user information and in-application data. | - Subsequent ease of scalability due to horizontal scaling. </br></br> - Ease of implementation due to its native support for JavaScript. | Database |
+| ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) | Pre-designed CSS templates and JavaScript Components | To streamline the process of building a responsive and visually appealing web application. | Framework |
+| ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) | Back-End web application framework for server-side development. | - Ability to use JavaScript for both client-side and server-side development for seamless development. </br></br> - Offers an extensive ecosystem with numerous developer-friendly features. | Framework |
 
 ### Timeline and Executables
 - 3rd week of May: Finalized pitch for Orbital Lift-off

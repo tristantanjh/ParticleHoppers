@@ -15,7 +15,7 @@ let oneWait;
 let animationStarted = false; // Flag variable to track animation state
 let exhaleStart = false;
 
-container.addEventListener('click', () => {
+/*container.addEventListener('click', () => {
   //breathsText.innerText = breathsLeft;
   if (!animationStarted) {
     start();
@@ -23,7 +23,19 @@ container.addEventListener('click', () => {
   } else {
     pause();
   }
-});
+});*/
+
+const clickHandler = () => {
+  //breathsText.innerText = breathsLeft;
+  if (!animationStarted) {
+    start();
+    animationStarted = true;
+  } else {
+    pause();
+  }
+};
+
+container.addEventListener('click', clickHandler);
 
 const totalTime = 7500;
 const breatheTime = (totalTime / 5) * 2;
@@ -55,6 +67,7 @@ function breathAnimation() {
   
   if (breathsLeft <= 0) {
     redirect();
+    container.removeEventListener('click', clickHandler);
   }
 
 }

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
-userSchema.plugin(passportLocalMongoose); // Add passport-local-mongoose plugin to handle user authentication
+userSchema.plugin(passportLocalMongoose, { usernameField: "email" }); // Add passport-local-mongoose plugin to handle user authentication
 
 const User = mongoose.model("User", userSchema); // Create User model
 

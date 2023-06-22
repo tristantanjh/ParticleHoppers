@@ -62,11 +62,20 @@
     color: #ffffff;
 }
 
+.nav-mission {
+    transition: all 0.3s ease;
+}
+
+.nav-mission:hover {
+    -webkit-filter: grayscale(1) invert(0.64);
+    filter: grayscale(1) invert(0.64);
+}
+
 .image-hover img {
     transition: all 0.3s ease;
-  }
+}
   
-  .image-hover img:hover {
+.image-hover img:hover {
     -webkit-filter: grayscale(1) invert(0.7);
    filter: grayscale(1) invert(0.7);
-  }
+}

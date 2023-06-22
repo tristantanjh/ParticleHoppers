@@ -20,7 +20,6 @@ router.post("/", passport.authenticate("local", {
         failureFlash: true
     }), (req, res) => {
         // Redirect back to the login page on entering invalid login details
-        req.flash("error", "Invalid username or password.");
         res.redirect("/login");
     }
 );

@@ -5,6 +5,7 @@
 }
 
 #login-btn {
+    transition: all 0.3s ease;
     background-color: #FFFFFF25;
     border: 0;
     border-radius: 50px;
@@ -37,6 +38,7 @@
 }
 
 #begin-btn {
+    transition: all 0.3s ease;
     background-color: #FFFFFF25;
     border: 0;
     border-radius: 50px;

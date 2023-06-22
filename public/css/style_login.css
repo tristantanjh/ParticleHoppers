@@ -39,6 +39,7 @@
 }
 
 #login-btn {
+    transition: all 0.3s ease;
     background-color: #ffffff7a;
     border: 0;
     border-radius: 50px;
@@ -47,6 +48,7 @@
 }
 
 #signup-btn {
+    transition: all 0.3s ease;
     background-color: #ffffff7a;
     border: 0;
     border-radius: 50px;
@@ -67,6 +69,7 @@
 }
 
 #register-btn {
+    transition: all 0.3s ease;
     background-color: #20202033;
     border: 0;
     border-radius: 50px;
@@ -126,9 +129,19 @@ body {
 }
 
 #redirect-login {
+    transition: all 0.3s ease;
     color: rgba(255, 255, 255, 0.808);
 }
 
 #redirect-login:hover {
     color: #202020b2;
+}
+
+.image-hover img {
+    transition: all 0.3s ease;
+}
+
+.image-hover img:hover {
+    -webkit-filter: grayscale(1) invert(0.7);
+   filter: grayscale(1) invert(0.7);
 }

@@ -4,10 +4,11 @@ const { mongoose, passport, passportLocalMongoose } = require("./config");
 // Define user schema and model for authentication
 const userSchema = new mongoose.Schema({
   email: String,
+  username: String,
   password: String,
 });
 
-userSchema.plugin(passportLocalMongoose); // Add passport-local-mongoose plugin to handle user authentication
+userSchema.plugin(passportLocalMongoose, { usernameField: "email" }); // Add passport-local-mongoose plugin to handle user authentication
 
 const User = mongoose.model("User", userSchema); // Create User model
 

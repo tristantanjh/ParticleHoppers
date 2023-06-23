@@ -14,7 +14,12 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
 // Registers new user in database, then redirects to Breathe page
-    User.register({username: req.body.username}, req.body.password, (err, user) => {
+    User.register(
+        {
+            email: req.body.email,
+            username: req.body.username,
+        },
+        req.body.password, (err, user) => {
         if (err) {
             req.flash("error", err.message); 
             res.redirect("/register");

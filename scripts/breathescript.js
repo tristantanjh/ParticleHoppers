@@ -1,3 +1,11 @@
+/*
+To Implement:
+Customisation of number of breaths at the start of the cycle
+
+To consider:
+Moving click handlers outside of "BreathingAnimation"
+*/
+
 // Module for managing the breathing animation
 function BreathingAnimation(containerElement, textElement, pointerContainerElement, breathsTextElement, calmingSound) {
   const totalTime = 7500;

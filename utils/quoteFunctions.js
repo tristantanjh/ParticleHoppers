@@ -1,6 +1,7 @@
 const { https } = require('../config');
 
 let cachedQuote = null;
+let cacheExpirationTime = null;
 
 // Function to fetch a new daily quote from Zenquotes API and update the cache
 function fetchAndCacheQuote() {
@@ -25,6 +26,7 @@ function fetchAndCacheQuote() {
         
                 // Cache the quote and set the expiration time at 8 AM
                 cachedQuote = { q: quote, a: author }; 
+                cacheExpirationTime = getNextExpirationTime();
 
                 // console.log('Quote cached:', cachedQuote);
                 // console.log('Cache expiration time:', cacheExpirationTime);
@@ -42,21 +44,32 @@ function fetchAndCacheQuote() {
     })
 }
 
-// Function to calculate the cache expiration time at 8 AM local time
-function calculateCacheExpiration() {
+// Function to calculate the next cache expiration time at 8 AM local time
+function getNextExpirationTime() {
     const now = new Date();
-    const expirationTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0);
-    
+    let expirationTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 8, 0, 0);
+  
     // Check if the current time is past 8 AM
     if (now > expirationTime) {
-      expirationTime.setDate(expirationTime.getDate() + 1); // Set expiration to tomorrow's 8 AM
+      expirationTime.setDate(expirationTime.getDate() + 1); // Move to the next day
     }
   
-    return expirationTime.getTime() - now.getTime();
+    return expirationTime;
+  }
+
+// Function to check if the cache has expired
+function hasCacheExpired() {
+    const now = new Date();
+    return now > cacheExpirationTime;
+  }
+
+function isQuoteCached() {
+    return cachedQuote != null;
 }
 
 module.exports = {
     fetchAndCacheQuote,
-    calculateCacheExpiration,
-    cachedQuote: () => cachedQuote
-};
+    hasCacheExpired,
+    cachedQuote: () => cachedQuote,
+    isQuoteCached,
+}

@@ -53,5 +53,14 @@ describe('Login', () => {
         cy.get('.image-hover').click();
         cy.url().should('include', '/');
     });
+    
+    it('should redirect to breathe page if accessed while already logged in', () => {
+        cy.get('input[name="email"]').type('test@123.com');
+        cy.get('input[name="password"]').type('qwerty');
+        cy.get('#login-btn').click();
+
+        cy.visit('/login');
+        cy.url().should('include', '/breathe'); 
+    })
   });
   

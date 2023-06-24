@@ -4,7 +4,10 @@ const { mongoose, passport, passportLocalMongoose } = require("./config");
 // Define user schema and model for authentication
 const userSchema = new mongoose.Schema({
   email: String,
-  username: String,
+  username: {
+    type: String,
+    required: true,
+  },
   password: String,
 });
 

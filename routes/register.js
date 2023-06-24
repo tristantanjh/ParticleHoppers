@@ -13,7 +13,13 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-// Registers new user in database, then redirects to Breathe page
+    // Check if the username field is empty
+    if (!req.body.email || !req.body.username || !req.body.password) {
+        req.flash("error", "Missing Credentials");
+        res.redirect("/register");
+        return;
+    }
+    // Registers new user in database, then redirects to Breathe page
     User.register(
         {
             email: req.body.email,

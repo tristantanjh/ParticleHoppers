@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
     // Check if the username field is empty
     if (!req.body.email || !req.body.username || !req.body.password) {
-        req.flash("error", "Missing Credentials");
+        req.flash("error", "Missing credentials");
         res.redirect("/register");
         return;
     }
@@ -27,6 +27,12 @@ router.post("/", (req, res) => {
         },
         req.body.password, (err, user) => {
         if (err) {
+            if (err.code === 11000) {
+                // Duplicate key error, indicating a repeated username
+                req.flash("error", "Username is already taken");
+              } else {
+                req.flash("error", err.message);
+              }
             req.flash("error", err.message); 
             res.redirect("/register");
         } else {

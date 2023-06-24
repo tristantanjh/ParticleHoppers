@@ -1,6 +1,10 @@
 describe('Visit Homepage', () => {
+  it('successfully loads homepage', () => {
+    cy.visit('/');
+  })
+
   beforeEach(() => {
-    cy.visit('localhost:3000');
+    cy.visit('/');
   })
 
   it('should navigate to the login page from the first button', () => {

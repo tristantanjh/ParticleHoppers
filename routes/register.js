@@ -30,6 +30,9 @@ router.post("/", (req, res) => {
             if (err.code === 11000) {
                 // Duplicate key error, indicating a repeated username
                 req.flash("error", "Username is already taken");
+              } else if (err.name === "UserExistsError") {
+                // User with the given email or username already exists
+                req.flash("error", "Email or username is already taken");
               } else {
                 req.flash("error", err.message);
               }

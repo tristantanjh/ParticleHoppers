@@ -5,7 +5,7 @@
     <div class="container">
       <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
         <ul class="nav nav-pills align-items-center">
-          <li class="nav-item"><a href="#mission" class="text-white nav-link nav-mission">Our Mission</a></li>
+          <li class="nav-item"><a href="#mission" class="text-white nav-link nav-mission mission-topnav">Our Mission</a></li>
           <li class="nav-item"><a href="<%= loginOrQuoteRoute %>" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary"><%= loginOrQuoteText %></button></a></li>
           <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
         </ul>
@@ -13,9 +13,9 @@
     </div>
 
     <div class="px-4 py-5 mb-5 text-center main-cont">
-      <h1 class="display-5 main-text fw-normal"><%= mainText %></h1>
+      <h1 class="display-5 main-text fw-normal mainText"><%= mainText %></h1>
       <div class="col-lg-6 mx-5">
-        <p class="lead mb-4 main-text fw-normal"><%= subText %> </p>
+        <p class="lead mb-4 main-text fw-normal subText"><%= subText %> </p>
         <div class="gap-2 d-sm-flex justify-content-sm-center">
           <a href="/login" class="nav-link"><button type="button" id="begin-btn" class="btn btn-primary btn-lg px-5 gap-3"><%= beginOrContinue %></button></a>
         </div>
@@ -42,9 +42,9 @@
         </a>
     
         <ul class="nav col-md-4 justify-content-end text-center text-md-end ">
-          <li class="nav-item"><a href="#main" class="nav-link px-2 main-text">Home</a></li>
-          <li class="nav-item"><a href="#mission" class="nav-link px-2 main-text">Mission</a></li>
-          <li class="nav-item"><a href="/about" class="nav-link px-2 main-text">About</a></li>
+          <li class="nav-item"><a href="#main" class="nav-link px-2 main-text home-botnav">Home</a></li>
+          <li class="nav-item"><a href="#mission" class="nav-link px-2 main-text mission-botnav">Mission</a></li>
+          <li class="nav-item"><a href="/about" class="nav-link px-2 main-text about-botnav">About</a></li>
         </ul>
       </footer>
     </div>

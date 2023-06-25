@@ -16,7 +16,8 @@ app.use((req, res, next) => {
     res.status(404).render('errors/notFound');
 });
 
-// Starting the server on port 3000
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+// Starting the server on the assigned port or 3000 as fallback
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
 });

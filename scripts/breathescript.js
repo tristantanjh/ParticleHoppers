@@ -8,10 +8,9 @@ Moving click handlers outside of "BreathingAnimation"
 
 // Module for managing the breathing animation
 function BreathingAnimation(containerElement, textElement, pointerContainerElement, breathsTextElement, calmingSound) {
-  const totalTime = 7500;
-  const breatheTime = (totalTime / 5) * 2;
-  const holdTime = totalTime / 5;
-  const redirectTime = 7500 * 5; // Time after which to redirect in milliseconds (5 cycles)
+  const totalTime = 19000;
+  const breatheTime = (totalTime / 19) * 4;
+  const holdTime = (totalTime / 19) * 7;
 
   let animationInterval;
   let holdTimeout;
@@ -30,7 +29,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
     containerElement.className = 'container grow';
 
     pointerContainerElement.offsetHeight; // Trigger a reflow
-    pointerContainerElement.style.animation = 'rotate 7.5s linear forwards infinite';
+    pointerContainerElement.style.animation = 'rotate 19s linear forwards infinite';
 
     holdTimeout = setTimeout(() => {
       textElement.innerText = 'Hold';
@@ -51,6 +50,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
 
   function start() {
     calmingSound.play();
+    let intialDelay = 5000;
 
     if (exhaleStart === false) {
       breathsLeft--;
@@ -62,17 +62,21 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
 
     threeWaitTimeout = setTimeout(() => {
       textElement.innerText = '3';
-    }, totalTime - 3000);
+    }, intialDelay - 3000);
 
     twoWaitTimeout = setTimeout(() => {
       textElement.innerText = '2';
-    }, totalTime - 2000);
+    }, intialDelay - 2000);
 
     oneWaitTimeout = setTimeout(() => {
       textElement.innerText = '1';
-    }, totalTime - 1000);
+    }, intialDelay - 1000);
 
-    animationInterval = setInterval(breathAnimation, totalTime);
+    executeAnimation = setTimeout(() => {
+      breathAnimation();
+      animationInterval = setInterval(breathAnimation, totalTime);
+    }, intialDelay);
+    
   }
 
   function pause() {
@@ -86,6 +90,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
     clearTimeout(threeWaitTimeout);
     clearTimeout(twoWaitTimeout);
     clearTimeout(oneWaitTimeout);
+    clearTimeout(executeAnimation);
     animationStarted = false;
     calmingSound.pause();
     calmingSound.load();

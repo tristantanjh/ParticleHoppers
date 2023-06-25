@@ -51,11 +51,10 @@ body {
   background: conic-gradient(
     #7A8E94 0%,
     #c8d8d3 10%,
-    #c8d8d3 20%,
-    #cddfd9 40%,
-    #080707 40%,
-    #030303 60%,
-    #7A8E94 60%,
+    #c8d8d3 21%,
+    #080707 21%,
+    #030303 58%,
+    #7A8E94 58%,
     #7A8E94 100%
   );
 
@@ -105,7 +104,7 @@ body {
 }
 
 .container.grow {
-  animation: grow 3s linear forwards;
+  animation: grow 4s linear forwards;
 }
 
 @keyframes grow {
@@ -114,17 +113,17 @@ body {
   }
 
   to {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 }
 
 .container.shrink {
-  animation: shrink 3s linear forwards;
+  animation: shrink 8s linear forwards;
 }
 
 @keyframes shrink {
   from {
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 
   to {

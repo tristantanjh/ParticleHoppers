@@ -81,8 +81,6 @@ The meditation exercises and daily affirmations are to be implemented maximally 
 | ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) | Distributed version control system used for tracking changes in source code. | - Allows for easy tracking and managing changes to source code over time. </br></br> - Enables seamless collaboration among our developers working on the same project. | Version Control |
 | ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) | Cloud hosting platform that simplifies the deployment and management of web applications. | - Provides infrastructure and automation tools to easily deploy applications to various cloud providers, ensuring scalability, reliability, and ease of maintenance. </br></br> - It provides a free tier, making it cost-effective for us to deploy and run our applications on the internet. | Server Hosting |
 
-
-
 ### Timeline and Executables
 - 3rd week of May: Finalized pitch for Orbital Lift-off
 - 4th week of May: Created Mockup

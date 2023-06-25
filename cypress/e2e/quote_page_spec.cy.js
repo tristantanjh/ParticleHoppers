@@ -2,15 +2,20 @@ describe('Quote', () => {
     // Test case: Redirects user to login page if accessing without login
     it('redirects user to login page if accessing without login', () => {
         cy.visit('/quote');
+
+        // Asserts that user is redirected to login page
+        cy.url().should('include', '/login')
     });
 
     beforeEach(() => {
-        cy.visit('/login');
-        cy.get('input[name="email"]').type('test@123.com');
-        cy.get('input[name="password"]').type('qwerty');
-        cy.get('#login-btn').click();
-        cy.visit('/quote');
-        cy.url().should('include', '/quote'); 
+        if (Cypress.currentTest.title !== 'redirects user to login page if accessing without login') {
+            cy.visit('/login');
+            cy.get('input[name="email"]').type('test@123.com');
+            cy.get('input[name="password"]').type('qwerty');
+            cy.get('#login-btn').click();
+            cy.visit('/quote');
+            cy.url().should('include', '/quote'); 
+        }
     });
 
     // Test case: Successfully loads quote when logged in
@@ -34,6 +39,20 @@ describe('Quote', () => {
     it('should navigate to the home page on clicking logo', () => {
         cy.get('.image-hover').click();
         cy.url().should('include', '/');
+    });
+
+    // Test case: Logs user out when clicking logout button
+    it('should log user out when clicking logout button', () => {
+        cy.get('#login-btn').click();
+
+        // Asserts that user is redirected to home page after logout
+        cy.url().should('include', '/');
+
+        // Visit quote page again
+        cy.visit('/quote');
+
+        // Asserts that user is redirected to login page, proving that user is logged out
+        cy.url().should('include', '/login');
     });
 
     // Test case: Daily quote refreshes at 8am (start testing at 7:59am)
@@ -63,7 +82,7 @@ describe('Quote', () => {
         cy.wait(waitDuration);
 
         cy.visit('/quote'); // Refresh the page
-        
+
         // Assert that the quote has been refreshed and compare it with the previous quote
         cy.get('.quote').should('not.be.empty').should(($quote) => {
           const currentQuote = $quote.text();

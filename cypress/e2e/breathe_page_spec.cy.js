@@ -2,14 +2,17 @@ describe('Breathe', () => {
     // Test case: Redirects user to login page if accessing without login
     it('redirects user to login page if accessing without login', () => {
         cy.visit('/breathe');
+        cy.url().should('include', '/login');
     });
 
     beforeEach(() => {
-        cy.visit('/login');
-        cy.get('input[name="email"]').type('test@123.com');
-        cy.get('input[name="password"]').type('qwerty');
-        cy.get('#login-btn').click();
-        cy.url().should('include', '/breathe'); 
+        if (Cypress.currentTest.title !== 'redirects user to login page if accessing without login') {
+            cy.visit('/login');
+            cy.get('input[name="email"]').type('test@123.com');
+            cy.get('input[name="password"]').type('qwerty');
+            cy.get('#login-btn').click();
+            cy.url().should('include', '/breathe'); 
+        }
     });
 
     // Test case: Successfully loads breathe when logged in

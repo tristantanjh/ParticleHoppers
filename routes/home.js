@@ -17,7 +17,8 @@ router.get("/", (req, res) => {
                     pageTitle: "Home", 
                     mainText: "Welcome back, " + username,
                     subText: loginSubText,
-                    beginOrContinue: "Take a Breather",
+                    beginOrBreatheText: "Take a Breather",
+                    beginOrBreatheRoute: "/breathe",
                     loginOrQuoteRoute: "/quote",
                     loginOrQuoteText: "Daily Quote"
                 });
@@ -30,7 +31,8 @@ router.get("/", (req, res) => {
             pageTitle: "Home",  
             mainText: defaultMainText,
             subText: defaultSubText,
-            beginOrContinue: "Begin Now",
+            beginOrBreatheText: "Begin Now",
+            beginOrBreatheRoute: "/login",
             loginOrQuoteRoute: "/login",
             loginOrQuoteText: "Login"
         });

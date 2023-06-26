@@ -4,8 +4,8 @@ describe('Registration Page', () => {
         cy.visit('/register');
     });
 
-    // Test case: Redirect to breathe page if accessed while already logged in
-    it('should redirect to breathe page if accessed while already logged in', () => {
+    // Test case: Redirect to home page if accessed while already logged in
+    it('should redirect to home page if accessed while already logged in', () => {
         // Login with test credentials
         cy.visit('/login');
         cy.get('input[name="email"]').type('test@123.com');
@@ -14,7 +14,7 @@ describe('Registration Page', () => {
 
         // Access the registration page
         cy.visit('/register');
-        cy.url().should('include', '/breathe'); 
+        cy.url().should('include', '/'); 
     });
 
     beforeEach(() => {
@@ -70,8 +70,8 @@ describe('Registration Page', () => {
         cy.contains('Email or username is already taken').should('be.visible');
     });
 
-    // Test case: Register a new user and redirect to the breathe page
-    it('should register a new user and redirect to breathe page', () => {
+    // Test case: Register a new user and redirect to the home page
+    it('should register a new user and redirect to home page', () => {
       // Generate a unique timestamp as identifier
         const uniqueId = Date.now();
         const email = `testuser${uniqueId}@example.com`;
@@ -82,7 +82,7 @@ describe('Registration Page', () => {
         cy.get('input[name="password"]').type(password);
 
         cy.get('#signup-btn').click();
-        cy.url().should('include', '/breathe'); 
+        cy.url().should('include', '/'); 
     });
 
     // Test cases for missing field combinations

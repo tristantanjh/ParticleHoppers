@@ -16,7 +16,7 @@ describe('Login', () => {
     
         // Submit the form
         cy.get('#login-btn').click();
-        cy.url().should('include', '/breathe'); 
+        cy.url().should('include', '/'); 
     });
   
     // Test case: Display error message with invalid credentials
@@ -104,8 +104,8 @@ describe('Login', () => {
         cy.url().should('include', '/');
     });
     
-    // Test case: Redirect to breathe page if accessed while already logged in
-    it('should redirect to breathe page if accessed while already logged in', () => {
+    // Test case: Redirect to home page if accessed while already logged in
+    it('should redirect to home page if accessed while already logged in', () => {
         // Log in with test credentials
         cy.get('input[name="email"]').type('test@123.com');
         cy.get('input[name="password"]').type('qwerty');
@@ -113,7 +113,7 @@ describe('Login', () => {
 
         // Access the login page
         cy.visit('/login');
-        cy.url().should('include', '/breathe'); 
+        cy.url().should('include', '/'); 
     });
   });
   

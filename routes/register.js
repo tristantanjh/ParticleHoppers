@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const { User, passport } = require('../user');
 
-// Redirects to Breathe page if already logged in
+// Redirects to Home page if already logged in
 router.get("/", (req, res) => {
     if (req.isAuthenticated()) {
-        res.redirect("/breathe");
+        res.redirect("/");
     } else {
         const errorMessage = req.flash("error")[0];
         res.render("register", { error: errorMessage, pageTitle: "Register" });

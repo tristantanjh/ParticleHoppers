@@ -3,9 +3,9 @@ const router = express.Router();
 const { passport } = require('../user');
 
 router.get("/", (req, res) => {
-    // Redirects to Breathe page if already logged in
+    // Redirects to Home page if already logged in
     if (req.isAuthenticated()) {
-        res.redirect("/breathe");
+        res.redirect("/");
     } else {
         // Renders the error message for incorrect username or password
         const errorMessage = req.flash("error")[0];
@@ -13,9 +13,9 @@ router.get("/", (req, res) => {
     }
 });
 
-// Redirects to Breathe page on successful login
+// Redirects to Home page on successful login
 router.post("/", passport.authenticate("local", {
-        successRedirect: "/breathe",
+        successRedirect: "/",
         failureRedirect: "/login",
         failureFlash: true
     }), (req, res) => {

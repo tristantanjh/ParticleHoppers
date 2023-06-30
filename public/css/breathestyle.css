@@ -57,6 +57,7 @@ body {
     #7A8E94 58%,
     #7A8E94 100%
   );
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.3);
 
   height: 320px;
   width: 320px;

@@ -19,8 +19,9 @@ router.get("/", (req, res) => {
                     subText: loginSubText,
                     beginOrBreatheText: "Take a Breather",
                     beginOrBreatheRoute: "/breathe",
-                    loginOrQuoteRoute: "/quote",
-                    loginOrQuoteText: "Daily Quote"
+                    loginOrLogoutRoute: "/logout",
+                    loginOrLogoutText: "Logout",
+                    isVisible: true
                 });
             })
             .catch((error) => {
@@ -33,8 +34,9 @@ router.get("/", (req, res) => {
             subText: defaultSubText,
             beginOrBreatheText: "Begin Now",
             beginOrBreatheRoute: "/login",
-            loginOrQuoteRoute: "/login",
-            loginOrQuoteText: "Login"
+            loginOrLogoutRoute: "/login",
+            loginOrLogoutText: "Login",
+            isVisible: false
         });
     }
 });

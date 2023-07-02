@@ -13,12 +13,20 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    // Check if the username field is empty
+    // Check if any fields are empty
     if (!req.body.email || !req.body.username || !req.body.password) {
         req.flash("error", "Missing credentials");
         res.redirect("/register");
         return;
     }
+
+    // Check if the fields are strings
+    if (typeof req.body.email !== "string" || typeof req.body.username !== "string" || typeof req.body.password !== "string") {
+        req.flash("error", "Invalid password format");
+        res.redirect("/register");
+        return;
+    }
+
     // Registers new user in database, then redirects to Breathe page
     User.register(
         {
@@ -31,9 +39,9 @@ router.post("/", (req, res) => {
                 // Duplicate key error, indicating a repeated username
                 req.flash("error", "Email or username is already taken");
               } else {
-                req.flash("error", err.message);
+                req.flash("error", "There was an error with your request. Please contact the support team for assistance!");
               }
-            req.flash("error", err.message); 
+            req.flash("error", "There was an error with your request. Please contact the support team for assistance!"); 
             res.redirect("/register");
         } else {
             passport.authenticate("local")(req, res, () => {

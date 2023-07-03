@@ -60,6 +60,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
 
   function start() {
   const fixedMode = mode.value;  
+    //used ==, if === is used it'll check particularly for int but fixedmode is a number
     if (fixedMode == 2) {
       gradientCircle.className = 'gradient-circle2';
       totalTime = 12000;

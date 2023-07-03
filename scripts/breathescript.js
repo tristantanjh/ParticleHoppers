@@ -76,6 +76,11 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       rotateVar = 13;
     } else {
       gradientCircle.className = 'gradient-circle1';
+      totalTime = 19000;
+      breatheTime = (totalTime / 19) * 4;
+      holdTime = (totalTime / 19) * 7;
+      secondBreatheTime = 0;
+      rotateVar = 19;
     }
 
     calmingSound.play();

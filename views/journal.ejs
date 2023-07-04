@@ -1,5 +1,26 @@
-<%- include("partials/login_header") %>
+<%- include("partials/journal_header") %>
 
 <body id="main">
-    
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
+          <ul class="nav nav-pills align-items-center">
+            <li class="nav-item"><a href="/breathe" class="text-white nav-link nav-mission mission-topnav">Take a Breather</a></li>
+            <li class="nav-item"><a href="/quote" class="text-white nav-link nav-mission mission-topnav">Daily Quote</a></li>
+            <li class="nav-item"><a href="/logout" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary">Logout</button></a></li>
+            <a href="/" class="image-hover">
+                <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
+            </a>
+          </ul>
+        </header>
+    </div>
+
+    <form class="container">
+        <div class="form-group mb-3">
+          <input type="text" class="form-control form-control-lg" placeholder="Title of today's entry">
+        </div>
+        <div class="form-group mb-3">
+          <textarea class="form-control" rows="9" placeholder="Pen down today's entry here"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary mb-3">Submit</button>
+      </form>
 </body>

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Renders About page
+// Renders Journal page
 router.get("/", (req, res) => {
     res.render("journal", { pageTitle: "Journal"});
 });

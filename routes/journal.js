@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
         const currentUser = req.user; // Access the authenticated user from req.user
   
         // Check if the user has already submitted an entry today
-        const today = new Date().setHours(0, 0, 0, 0);
+        const today = new Date().setHours(8, 0, 0, 0);
         const journalEntry = await JournalEntry.findOne({
           user: currentUser._id,
           createdAt: { $gte: today },
@@ -52,6 +52,7 @@ router.post('/', async (req, res) => {
       res.redirect("/journal");
     } catch (error) {
       console.error(error);
+      res.redirect("/journal");
     }
 });
 
@@ -61,7 +62,7 @@ router.post("/edit", async (req, res) => {
       const { title, content } = req.body;
   
       // Find and update the journal entry for today
-      const today = new Date().setHours(0, 0, 0, 0);
+      const today = new Date().setHours(8, 0, 0, 0);
       const journalEntry = await JournalEntry.findOneAndUpdate(
         {
           user: currentUser._id,

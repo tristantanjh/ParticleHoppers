@@ -39,13 +39,13 @@
               <form id="editForm" method="post" action="/journal/edit">
                 <div class="form-group mb-3">
                   <label for="editTitle">Title</label>
-                  <input type="text" class="form-control" id="editTitle" name="title" value="<%= journalEntry.title %>">
+                  <input type="text" class="form-control" id="editTitle" name="title" value="<%= journalEntry.title %>" oninput="checkInputFieldsAfter()">
                 </div>
                 <div class="form-group mb-3">
                   <label for="editContent">Content</label>
-                  <textarea class="form-control" id="editContent" name="content" rows="6"><%= journalEntry.content %></textarea>
+                  <textarea class="form-control" id="editContent" name="content" rows="6" oninput="checkInputFieldsAfter()"><%= journalEntry.content %></textarea>
                 </div>
-                <button type="submit" class="btn btn-secondary mt-3">Save Changes</button>
+                <button type="submit" id="saveButton" class="btn btn-secondary mt-3">Save Changes</button>
               </form>
             </div>
           </div>
@@ -60,20 +60,41 @@
         
         <hr />
         <form class="container" method="post" action="/journal">
-          <!-- Form fields for title and content -->
           <div class="form-group mb-3">
-            <input type="text" class="form-control form-control-lg" placeholder="Title of today's entry" name="title">
+            <input type="text" class="form-control form-control-lg" placeholder="Title of today's entry" id="newTitle" name="title" oninput="checkInputFieldsBefore()">
           </div>
           <div class="form-group mb-3">
-            <textarea class="form-control" rows="9" placeholder="Pen down today's entry here" name="content"></textarea>
+            <textarea class="form-control" rows="9" placeholder="Pen down today's entry here" id="newContent" name="content" oninput="checkInputFieldsBefore()"></textarea>
           </div>
-          <button type="submit" class="btn btn-secondary">Submit</button>
+          <button type="submit" id="submitButton" class="btn btn-secondary" disabled>Submit</button>
         </form>
       </div>
     <% } %>
 
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-</body>
+    <script>
+      function checkInputFieldsBefore() {
+        const title = document.getElementById('newTitle').value;
+        const content = document.getElementById('newContent').value;
+        const submitButton = document.getElementById('submitButton');
+      
+        if (title.trim() === '' || content.trim() === '') {
+          submitButton.disabled = true;
+        } else {
+          submitButton.disabled = false;
+        }
+      }
+
+      function checkInputFieldsAfter() {
+        const title = document.getElementById('editTitle').value;
+        const content = document.getElementById('editContent').value;
+        const saveButton = document.getElementById('saveButton');
+      
+        if (title.trim() === '' || content.trim() === '') {
+          saveButton.disabled = true;
+        } else {
+          saveButton.disabled = false;
+        }
+      }
+    </script>
+  </body>

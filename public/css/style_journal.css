@@ -118,3 +118,17 @@ h1.truncate {
 .custom-modal {
     background-color: #a7a7a7; /* Set your desired background color */
 }
+
+#submitButton:disabled,
+#submitButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#saveButton:disabled,
+#saveButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

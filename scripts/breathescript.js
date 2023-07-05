@@ -22,46 +22,78 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
   let oneWaitTimeout;
   let animationStarted = false;
   let exhaleStart = false;
+  let fixedMode;
   let breathsLeft = 4;
 
   
 
   function breathAnimation() {
+
     exhaleStart = false;
     breathsTextElement.innerText = breathsLeft;
     textElement.innerText = 'Breathe In!';
-    containerElement.className = 'container grow';
     
     pointerContainerElement.offsetHeight; // Trigger a reflow
     pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
     
-    holdTimeout = setTimeout(() => {
-      textElement.innerText = 'Hold';
-      
-    
-      breatheTimeout = setTimeout(() => {
-        textElement.innerText = 'Breathe In 2!';
-        containerElement.className = 'container grow';
-        pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
-    
-        holdTimeout = setTimeout(() => {
-          textElement.innerText = 'Breathe Out!';
-          containerElement.className = 'container shrink';
-          exhaleStart = true;
-          breathsLeft--;
-        }, secondBreatheTime);
-      }, holdTime);
-    }, breatheTime);
-    
+    if (fixedMode == 3){
 
-    if (breathsLeft <= 0) {
-      redirect();
-      containerElement.removeEventListener('click', clickHandler);
-    }
+      containerElement.className = 'container grow3_1';
+      
+      holdTimeout = setTimeout(() => {
+        textElement.innerText = 'Hold';
+        
+       
+        breatheTimeout = setTimeout(() => {
+          textElement.innerText = 'One more sharp breath!';
+          containerElement.className = 'container grow3_2';
+          pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
+      
+          holdTimeout = setTimeout(() => {
+            textElement.innerText = 'Breathe Out!';
+            containerElement.className = 'container shrink';
+            exhaleStart = true;
+            breathsLeft--;
+          }, secondBreatheTime);
+        }, holdTime);
+      }, breatheTime);
+      
+
+      if (breathsLeft <= 0) {
+        redirect();
+        containerElement.removeEventListener('click', clickHandler);
+      }
+
+    } else {
+
+      containerElement.className = 'container grow';
+      holdTimeout = setTimeout(() => {
+        textElement.innerText = 'Hold';
+        
+        containerElement.className = 'container grow';
+        breatheTimeout = setTimeout(() => {
+          
+          pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
+      
+          holdTimeout = setTimeout(() => {
+            textElement.innerText = 'Breathe Out!';
+            containerElement.className = 'container shrink';
+            exhaleStart = true;
+            breathsLeft--;
+          }, secondBreatheTime);
+        }, holdTime);
+      }, breatheTime);
+      
+
+      if (breathsLeft <= 0) {
+        redirect();
+        containerElement.removeEventListener('click', clickHandler);
+      }
+  }
   }
 
   function start() {
-  const fixedMode = mode.value;  
+  fixedMode = mode.value;  
     //used ==, if === is used it'll check particularly for int but fixedmode is a number
     if (fixedMode == 2) {
       gradientCircle.className = 'gradient-circle2';
@@ -72,9 +104,9 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       rotateVar = 12;
     } else if (fixedMode == 3) {
       gradientCircle.className = 'gradient-circle3';
-      secondBreatheTime = 3000;
+      secondBreatheTime = 1000;
       totalTime = 13000;
-      breatheTime = (totalTime / 13) * 1;
+      breatheTime = (totalTime / 13) * 3;
       holdTime = (totalTime / 13) * 1;
       rotateVar = 13;
     } else {

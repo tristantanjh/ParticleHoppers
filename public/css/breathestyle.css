@@ -139,12 +139,12 @@ body {
     #7A8E94 0%,
     #7A8E94 0.1%,
     #ffffff 0.1%,
-    #ffffff 8%,
-    #000000 8%,
-    #000000 16%,
-    #ffffff 16%,
-    #ffffff 39%,
-    #7A8E94 39%,
+    #ffffff 23.1%,
+    #000000 23.1%,
+    #000000 31.1%,
+    #ffffff 31.1%,
+    #ffffff 39.1%,
+    #7A8E94 39.1%,
     #7A8E94 100%
   );
 
@@ -221,6 +221,34 @@ body {
 @keyframes grow {
   from {
     transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.4);
+  }
+}
+
+.container.grow3_1 {
+  animation: grow3_1 3s linear forwards;
+}
+
+@keyframes grow3_1 {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.3);
+  }
+}
+
+.container.grow3_2 {
+  animation: grow3_2 1s linear forwards;
+}
+
+@keyframes grow3_2 {
+  from {
+    transform: scale(1.3);
   }
 
   to {

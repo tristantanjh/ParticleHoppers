@@ -105,3 +105,16 @@ h1.truncate {
 .invisible {
     display: none;
 }
+
+#today-entry {
+    background-color: #ffffff50;
+    border-radius: 20px;
+}
+
+.edit-button {
+    float: right;
+}
+
+.custom-modal {
+    background-color: #a7a7a7; /* Set your desired background color */
+}

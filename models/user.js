@@ -1,5 +1,5 @@
 // Require necessary configured packages
-const { mongoose, passport, passportLocalMongoose } = require("./config");
+const { mongoose, passport, passportLocalMongoose } = require("../config");
 
 // Define user schema and model for authentication
 const userSchema = new mongoose.Schema({
@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   password: String,
+  journalEntries: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'JournalEntry'
+  }],
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" }); // Add passport-local-mongoose plugin to handle user authentication

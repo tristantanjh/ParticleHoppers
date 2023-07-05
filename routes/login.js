@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { passport } = require('../user');
+const { passport } = require('../models/user');
 
 router.get("/", (req, res) => {
     // Redirects to Home page if already logged in

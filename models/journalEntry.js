@@ -20,4 +20,6 @@ const journalEntrySchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('JournalEntry', journalEntrySchema);
+const JournalEntry = mongoose.model("JournalEntry", journalEntrySchema);
+
+module.exports = { JournalEntry };

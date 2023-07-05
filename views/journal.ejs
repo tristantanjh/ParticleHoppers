@@ -14,12 +14,12 @@
         </header>
     </div>
 
-    <form class="container">
+    <form class="container" id="myForm" method="post" action="/journal">
         <div class="form-group mb-3">
-          <input type="text" class="form-control form-control-lg" placeholder="Title of today's entry">
+          <input type="text" class="form-control form-control-lg" placeholder="Title of today's entry" name="title">
         </div>
         <div class="form-group mb-3">
-          <textarea class="form-control" rows="9" placeholder="Pen down today's entry here"></textarea>
+          <textarea class="form-control" rows="9" placeholder="Pen down today's entry here" name="content"></textarea>
         </div>
         <button type="submit" class="btn btn-secondary mb-3">Submit</button>
       </form>

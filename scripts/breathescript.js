@@ -24,6 +24,8 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
   let exhaleStart = false;
   let breathsLeft = 4;
 
+  const inputBox = document.getElementById('breathe-types');
+
   function breathAnimation() {
     exhaleStart = false;
     breathsTextElement.innerText = breathsLeft;
@@ -87,6 +89,8 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
     calmingSound.play();
     let intialDelay = 5000;
 
+    inputBox.disabled = true;
+
     if (exhaleStart === false) {
       breathsLeft--;
     }
@@ -128,6 +132,8 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
     animationStarted = false;
     calmingSound.pause();
     calmingSound.load();
+
+    inputBox.disabled = false;
   }
 
   function redirect() {

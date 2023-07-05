@@ -19,7 +19,7 @@ body {
 .input {
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+  margin: 40px;
 }
 
 .input label {
@@ -40,6 +40,12 @@ body {
 
 .input select:focus {
   outline: none;
+}
+
+#breathe-types:disabled,
+#breathe-types[disabled]{
+  background-color: #3f3f3f81;
+  color: #000000bd;
 }
 
 .container {

@@ -16,6 +16,16 @@ body {
   margin: 0;
 }
 
+#text {
+  font-size: large;
+  font-weight: bold;
+}
+
+.breaths, .breaths-text {
+  font-size: large;
+  font-weight: bold;
+}
+
 .input {
   display: flex;
   flex-direction: column;

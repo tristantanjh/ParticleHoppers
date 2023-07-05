@@ -24,7 +24,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
   let exhaleStart = false;
   let breathsLeft = 4;
 
-  const inputBox = document.getElementById('breathe-types');
+  
 
   function breathAnimation() {
     exhaleStart = false;
@@ -137,6 +137,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
   }
 
   function redirect() {
+    gradientCircle.className = 'gradient-circle';
     pointerContainerElement.style.animation = 'none';
     textElement.innerText = 'finished';
     clearTimeout(holdTimeout);
@@ -171,6 +172,7 @@ const pointerContainer = document.querySelector('.pointer-container');
 const breathsText = document.querySelector('.breaths-text');
 const calmingSound = new Audio('assets/calmSound.mp3');
 const mode = document.querySelector('.breath-input');
+const inputBox = document.getElementById('breathe-types');
 
 const breathingAnimation = BreathingAnimation(container, text, pointerContainer, breathsText, calmingSound);
 

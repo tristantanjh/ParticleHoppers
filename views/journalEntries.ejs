@@ -1,52 +1,137 @@
 <%- include("partials/journal_header") %>
 
 <body id="main">
-    <div class="container">
-        <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
-          <ul class="nav nav-pills align-items-center">
-            <li class="nav-item"><a href="/breathe" class="text-white nav-link nav-mission mission-topnav">Take a Breather</a></li>
-            <li class="nav-item"><a href="/quote" class="text-white nav-link nav-mission mission-topnav">Daily Quote</a></li>
-            <li class="nav-item"><a href="/logout" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary">Logout</button></a></li>
-            <a href="/" class="image-hover">
-                <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
-            </a>
-          </ul>
-        </header>
-    </div>
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
+      <ul class="nav nav-pills align-items-center">
+        <li class="nav-item"><a href="/breathe" class="text-white nav-link nav-mission mission-topnav">Take a Breather</a></li>
+        <li class="nav-item"><a href="/quote" class="text-white nav-link nav-mission mission-topnav">Daily Quote</a></li>
+        <li class="nav-item"><a href="/logout" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary">Logout</button></a></li>
+        <a href="/" class="image-hover">
+          <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
+        </a>
+      </ul>
+    </header>
+  </div>
 
-    <div class="container">
-        <h1 class="display-5 main-text fw-normal"><%= username %>'s journal</h1>
+  <div class="container">
+    <h1 class="display-5 main-text fw-normal"><%= username %>'s journal</h1>
 
-        <% if (entries.length > 0) { %>
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Entry</th>
-                        <th>Date Created</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                      <% entries.forEach(entry => { %>
-                        <tr>
-                          <td>
-                            <p><strong><%= entry.title %></strong></p>
-                            <p class="truncate"><%= entry.content.slice(0, 40) + "..."%></p>
-                          </td>
-                          <td><%= entry.createdAt.toDateString() %></td>
-                          <td>
-                            <form action="/journal/<%= entry._id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                           </td>
-                        </tr>
-                      <% }); %>
-                    </tbody>
-                  </table>
-            
-        <% } else { %>
-          <p>No journal entries found. <a href="/journal">Create an entry now?</a></p>
-        <% } %>
-    </div>
+    <% if (entries.length > 0) { %>
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Entry</th>
+              <th>Date Created</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <% entries.forEach(entry => { %>
+              <tr>
+                <td>
+                  <p class="m-0 underline" data-bs-toggle="modal" data-bs-target="#journalEntryModal"><strong><%= entry.title %></strong></p>
+                  <p class="truncate m-0"><%= entry.content.slice(0, 40) + "..."%></p>
+                </td>
+                <td class="align-middle"><%= entry.createdAt.toDateString() %></td>
+                <td>
+                  <div class="d-flex justify-content-end">
+                    <% if (entry.createdAt.toDateString() === new Date().toDateString()) { %>
+                      <button type="button" class="btn btn-secondary m-2" data-bs-toggle="modal" data-bs-target="#editModal<%= entry._id %>">
+                        Edit
+                      </button>
+                    <% } %>
+                    <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal<%= entry._id %>">Delete</button>
+                  </div>
+                    
+                  
+                  <!-- Delete Modal -->
+                  <div class="modal fade" id="confirmDeleteModal<%= entry._id %>" tabindex="-1" aria-labelledby="confirmDeleteModalLabel<%= entry._id %>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content custom-modal">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Are you sure you want to delete this journal entry? This action is irreversible!</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <form action="/journal/entries/<%= entry._id %>" method="POST">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
 
+                  <!-- Journal Entry Modal -->
+                  <div class="modal fade" id="journalEntryModal" tabindex="-1" aria-labelledby="journalEntryModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                      <div class="modal-content custom-modal">
+                        <div class="modal-header">
+                          <h3 class="modal-title display-7 main-text fw-normal" id="journalEntryModalLabel">Your Entry on <%= entry.createdAt.toDateString() %></h3>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-group mb-3">
+                            <h4 class="display-8 main-text fw-bold"><%= entry.title %></h4>
+                            <p class="lead main-text fw-normal"><%= entry.content %></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Edit Modal -->
+                  <div class="modal fade" id="editModal<%= entry._id %>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content custom-modal">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="editModalLabel">Edit Today's Journal Entry</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="editForm" method="post" action="/journal/edit">
+                            <div class="form-group mb-3">
+                              <label for="editTitle">Title</label>
+                              <input type="text" class="form-control" id="editTitle" name="title" value="<%= entry.title %>" oninput="checkInputFieldsAfter()">
+                            </div>
+                            <div class="form-group mb-3">
+                              <label for="editContent">Content</label>
+                              <textarea class="form-control" id="editContent" name="content" rows="6" oninput="checkInputFieldsAfter()"><%= entry.content %></textarea>
+                            </div>
+                            <button type="submit" id="saveButton" class="btn btn-secondary mt-3">Save Changes</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        
+    <% } else { %>
+      <p>No journal entries found. <a href="/journal">Create an entry now?</a></p>
+    <% } %>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script>
+    function checkInputFieldsAfter() {
+      const title = document.getElementById('editTitle').value;
+      const content = document.getElementById('editContent').value;
+      const saveButton = document.getElementById('saveButton');
+    
+      if (title.trim() === '' || content.trim() === '') {
+        saveButton.disabled = true;
+      } else {
+        saveButton.disabled = false;
+      }
+    }
+  </script>
 </body>

@@ -29,29 +29,6 @@
         <p class="text-end m-0"><%= new Date().toLocaleDateString() %></p>
       </div>
 
-      <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content custom-modal">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editModalLabel">Edit Journal Entry</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form id="editForm" method="post" action="/journal/edit">
-                <div class="form-group mb-3">
-                  <label for="editTitle">Title</label>
-                  <input type="text" class="form-control" id="editTitle" name="title" value="<%= journalEntry.title %>" oninput="checkInputFieldsAfter()">
-                </div>
-                <div class="form-group mb-3">
-                  <label for="editContent">Content</label>
-                  <textarea class="form-control" id="editContent" name="content" rows="6" oninput="checkInputFieldsAfter()"><%= journalEntry.content %></textarea>
-                </div>
-                <button type="submit" id="saveButton" class="btn btn-secondary mt-3">Save Changes</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
     <% } else { %>
       <div class="container mt-5 p-4" id="today-entry">
         <h1 class="display-5 main-text fw-normal d-flex justify-content-between align-items-center">

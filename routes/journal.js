@@ -87,11 +87,40 @@ router.post("/edit", async (req, res) => {
         { new: true }
       );
   
-      res.redirect("/journal");
+      res.redirect("/journal/entries");
     } catch (error) {
       console.error(error);
       res.redirect("/login");
     }
 });
+
+router.post("/entries/:id", async (req, res) => {
+    try {
+      if (req.isAuthenticated()) {
+        const currentUser = req.user;
+        const entryId = req.params.id;
+
+        // Find the journal entry by ID
+        const journalEntry = await JournalEntry.findOneAndDelete({ _id: entryId, user: currentUser._id });
+
+        if (!journalEntry) {
+            return res.status(404).send("Journal entry not found.");
+        }
+
+        // Remove the reference from the user's journalEntries array
+        const user = await User.findOneAndUpdate(
+            { _id: currentUser._id },
+            { $pull: { journalEntries: entryId } }
+        );
+
+        res.redirect("/journal/entries");
+      } else {
+        res.redirect("/login");
+      }
+    } catch (error) {
+      console.error(error);
+      res.redirect("/login");
+    }
+  });
 
 module.exports = router;

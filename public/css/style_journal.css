@@ -132,3 +132,8 @@ h1.truncate {
   background-color: #cccccc;
   color: #666666;
 }
+
+p.underline:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -32,6 +32,21 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/entries", async (req, res) => {
+    try {
+      if (req.isAuthenticated()) {
+        const currentUser = req.user;
+        const entries = await JournalEntry.find({ user: currentUser._id }).sort({ createdAt: -1 });
+        res.render("journalEntries", { pageTitle: "All Entries", entries, username: currentUser.username });
+      } else {
+        res.redirect("/login");
+      }
+    } catch (error) {
+      console.error(error);
+      res.redirect("/login");
+    }
+});
+
 router.post('/', async (req, res) => {
     try {
       const currentUser = req.user; // Access the authenticated user from req.user
@@ -77,6 +92,6 @@ router.post("/edit", async (req, res) => {
       console.error(error);
       res.redirect("/login");
     }
-  });
+});
 
 module.exports = router;

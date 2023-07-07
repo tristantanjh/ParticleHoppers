@@ -18,10 +18,10 @@ router.get("/", async (req, res) => {
   
         if (journalEntry) {
           // Render the existing journal entry
-          res.render("journal", { pageTitle: "Journal", journalEntry });
+          res.redirect("/journal/entries");
         } else {
           // Render the form to submit a new entry
-          res.render("journal", { pageTitle: "Journal", journalEntry: null });
+          res.render("journal", { pageTitle: "Journal" });
         }
       } else {
         res.redirect("/login");

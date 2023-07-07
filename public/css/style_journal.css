@@ -147,3 +147,13 @@ p.underline:hover {
     -webkit-filter: grayscale(1) invert(0.95);
     filter: grayscale(1) invert(0.95);
 }
+
+.create-entry {
+    color: #2e2e3b;
+    transition: all 0.3s ease;
+}
+
+.create-entry:hover {
+    -webkit-filter: grayscale(1) invert(0.97);
+    filter: grayscale(1) invert(0.97);
+}

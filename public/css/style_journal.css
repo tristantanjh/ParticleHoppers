@@ -137,3 +137,13 @@ p.underline:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.pointer {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pointer:hover {
+    -webkit-filter: grayscale(1) invert(0.95);
+    filter: grayscale(1) invert(0.95);
+}

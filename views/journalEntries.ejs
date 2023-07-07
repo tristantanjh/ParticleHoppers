@@ -44,8 +44,20 @@
             <% entries.forEach(entry => { %>
               <tr>
                 <td>
-                  <p class="m-0 underline" data-bs-toggle="modal" data-bs-target="#journalEntryModal"><strong><%= entry.title %></strong></p>
-                  <p class="truncate m-0"><%= entry.content.slice(0, 40) + "..."%></p>
+                  <p class="m-0 underline" data-bs-toggle="modal" data-bs-target="#journalEntryModal<%= entry._id %>"><strong>
+                    <% if (entry.title.length > 40) { %>
+                      <%= entry.title.slice(0, 40) + "..." %>
+                    <% } else { %>
+                      <%= entry.title %>
+                    <% } %>
+                    </strong></p>
+                  <p class="m-0">
+                    <% if (entry.content.length > 40) { %>
+                      <%= entry.content.slice(0, 40) + "..." %>
+                    <% } else { %>
+                      <%= entry.content %>
+                    <% } %>
+                  </p>
                 </td>
                 <td class="align-middle"><%= entry.createdAt.toDateString() %></td>
                 <td>
@@ -83,7 +95,7 @@
                   </div>
 
                   <!-- Journal Entry Modal -->
-                  <div class="modal fade" id="journalEntryModal" tabindex="-1" aria-labelledby="journalEntryModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="journalEntryModal<%= entry._id %>" tabindex="-1" aria-labelledby="journalEntryModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                       <div class="modal-content custom-modal">
                         <div class="modal-header">
@@ -92,8 +104,8 @@
                         </div>
                         <div class="modal-body">
                           <div class="form-group mb-3">
-                            <h4 class="display-8 main-text fw-bold"><%= entry.title %></h4>
-                            <p class="lead main-text fw-normal"><%= entry.content %></p>
+                            <h4 class="display-8 main-text fw-bold" style="word-wrap: break-word;"><%= entry.title %></h4>
+                            <p class="lead main-text fw-normal text-wrap" style="word-wrap: break-word;"><%= entry.content %></p>
                           </div>
                         </div>
                       </div>

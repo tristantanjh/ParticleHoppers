@@ -46,17 +46,5 @@
           submitButton.disabled = false;
         }
       }
-
-      function checkInputFieldsAfter() {
-        const title = document.getElementById('editTitle').value;
-        const content = document.getElementById('editContent').value;
-        const saveButton = document.getElementById('saveButton');
-      
-        if (title.trim() === '' || content.trim() === '') {
-          saveButton.disabled = true;
-        } else {
-          saveButton.disabled = false;
-        }
-      }
     </script>
   </body>

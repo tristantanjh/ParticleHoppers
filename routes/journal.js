@@ -4,7 +4,7 @@ const { User } = require('../models/user');
 const { JournalEntry } = require('../models/journalEntry');
 
 // Renders Journal page
-router.get("/", async (req, res) => {
+router.get("/new", async (req, res) => {
     try {
       if (req.isAuthenticated()) {
         const currentUser = req.user; // Access the authenticated user from req.user
@@ -17,10 +17,10 @@ router.get("/", async (req, res) => {
         });
   
         if (journalEntry) {
-          // Render the existing journal entry
+          // Redirect to all entries page
           res.redirect("/journal/entries");
         } else {
-          // Render the form to submit a new entry
+          // Render the page to submit a new entry
           res.render("journal", { pageTitle: "Journal" });
         }
       } else {
@@ -37,7 +37,16 @@ router.get("/entries", async (req, res) => {
       if (req.isAuthenticated()) {
         const currentUser = req.user;
         const entries = await JournalEntry.find({ user: currentUser._id }).sort({ createdAt: -1 });
-        res.render("journalEntries", { pageTitle: "All Entries", entries, username: currentUser.username });
+      
+        const today = new Date().setHours(8, 0, 0, 0);
+        const journalEntry = await JournalEntry.findOne({
+          user: currentUser._id,
+          createdAt: { $gte: today },
+        });
+
+        const isEntryMissing = !journalEntry;
+
+        res.render("journalEntries", { pageTitle: "All Entries", entries, username: currentUser.username, isEntryMissing });
       } else {
         res.redirect("/login");
       }
@@ -47,7 +56,7 @@ router.get("/entries", async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/new', async (req, res) => {
     try {
       const currentUser = req.user; // Access the authenticated user from req.user
       const { title, content } = req.body;
@@ -64,10 +73,10 @@ router.post('/', async (req, res) => {
       await currentUser.save();
   
       console.log('Journal entry created successfully');
-      res.redirect("/journal");
+      res.redirect("/journal/entries");
     } catch (error) {
       console.error(error);
-      res.redirect("/journal");
+      res.redirect("/journal/new");
     }
 });
 

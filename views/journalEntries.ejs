@@ -15,7 +15,21 @@
   </div>
 
   <div class="container">
-    <h1 class="display-5 main-text fw-normal"><%= username %>'s journal</h1><hr />
+    <div class="d-flex justify-content-between">
+      <h1 class="d-flex align-items-center display-5 main-text fw-normal"><%= username %>'s journal</h1>
+          <% if (isEntryMissing) { %>
+            <a href="/journal/new" class="ml-auto d-flex align-items-center main-text create-entry"  style="text-decoration: none;">
+              <div class="ml-auto d-flex align-items-center main-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                </svg>
+                <p class="ms-2 mb-0 lead fw-bold">Fill In Today's Entry</p>
+            </div>
+            </a>
+          <% } %>
+    </div>
+    <hr />
+    
 
     <% if (entries.length > 0) { %>
       <table class="table align-middle">

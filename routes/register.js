@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, passport } = require('../user');
+const { User, passport } = require('../models/user');
 
 // Redirects to Home page if already logged in
 router.get("/", (req, res) => {
@@ -32,6 +32,7 @@ router.post("/", (req, res) => {
         {
             email: req.body.email,
             username: req.body.username,
+            journalEntries: [],
         },
         req.body.password, (err, user) => {
         if (err) {
@@ -45,7 +46,7 @@ router.post("/", (req, res) => {
             res.redirect("/register");
         } else {
             passport.authenticate("local")(req, res, () => {
-                res.redirect("/breathe");
+                res.redirect("/");
             });
         }
     });

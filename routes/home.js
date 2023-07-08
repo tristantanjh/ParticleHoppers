@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, passport } = require('../user');
+const { User, passport } = require('../models/user');
 
 const defaultMainText = "It's okay to not be okay."
 const defaultSubText = "We’re here to support and allow everyone to feel more at ease in their daily lives by providing support and guidance along the way. No matter what you’re going through, we’re here for you."
@@ -19,8 +19,9 @@ router.get("/", (req, res) => {
                     subText: loginSubText,
                     beginOrBreatheText: "Take a Breather",
                     beginOrBreatheRoute: "/breathe",
-                    loginOrQuoteRoute: "/quote",
-                    loginOrQuoteText: "Daily Quote"
+                    loginOrLogoutRoute: "/logout",
+                    loginOrLogoutText: "Logout",
+                    isVisible: true
                 });
             })
             .catch((error) => {
@@ -33,8 +34,9 @@ router.get("/", (req, res) => {
             subText: defaultSubText,
             beginOrBreatheText: "Begin Now",
             beginOrBreatheRoute: "/login",
-            loginOrQuoteRoute: "/login",
-            loginOrQuoteText: "Login"
+            loginOrLogoutRoute: "/login",
+            loginOrLogoutText: "Login",
+            isVisible: false
         });
     }
 });

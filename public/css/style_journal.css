@@ -1,0 +1,223 @@
+#main {
+    background-image: url(/assets/blurred_screen.png);
+    height: 100vh;
+    background-position: center;
+}
+
+#login-btn {
+    transition: all 0.3s ease;
+    background-color: #FFFFFF25;
+    border: 0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#login-btn:hover {
+    background-color: #FFFFFF40;
+    border: 0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.main-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center align the content */
+    justify-content: center; /* Horizontally center align the content */
+    height: 75vh;
+}
+
+.mission-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center align the content */
+    justify-content: center; /* Horizontally center align the content */
+    height: 50vh;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 5px 0px rgba(94, 94, 94, 0.603);
+    border-color: grey;
+}
+
+.form-control {
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.merged-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+#begin-btn {
+    transition: all 0.3s ease;
+    background-color: #FFFFFF25;
+    border: 0;
+    border-radius: 50px;
+}
+
+#begin-btn:hover {
+    background-color: #FFFFFF40;
+    border: 0;
+    border-radius: 50px;
+}
+
+.main-text {
+    color: #183049;
+}
+
+#mission {
+    background-image: url(/assets/blurred_screen.png);
+    height: 50vh;
+    background-position: center;
+}
+
+.mission-text {
+    color: #ffffff;
+}
+
+.nav-mission {
+    transition: all 0.3s ease;
+}
+
+.nav-mission:hover {
+    -webkit-filter: grayscale(1) invert(0.64);
+    filter: grayscale(1) invert(0.64);
+}
+
+.image-hover img {
+    transition: all 0.3s ease;
+}
+  
+.image-hover img:hover {
+    -webkit-filter: grayscale(1) invert(0.7);
+   filter: grayscale(1) invert(0.7);
+}
+
+h1.truncate {
+    overflow-wrap: break-word;
+    max-width: 50ch;
+}
+
+.invisible {
+    display: none;
+}
+
+#today-entry {
+    background-color: #ffffff50;
+    border-radius: 20px;
+}
+
+.edit-button {
+    float: right;
+}
+
+.custom-modal {
+    background-color: #a7a7a7; /* Set your desired background color */
+}
+
+#submitButton:disabled,
+#submitButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#saveButton:disabled,
+#saveButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+p.underline:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pointer:hover {
+    -webkit-filter: grayscale(1) invert(0.95);
+    filter: grayscale(1) invert(0.95);
+}
+
+.create-entry {
+    color: #2e2e3b;
+    transition: all 0.3s ease;
+}
+
+.create-entry:hover {
+    -webkit-filter: grayscale(1) invert(0.97);
+    filter: grayscale(1) invert(0.97);
+}
+
+.hidden {
+    display: none;
+  }
+  
+.visible {
+    display: block;
+}
+
+.blur {
+    filter: blur(4px);
+}
+
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+}
+
+@keyframes loadingDots {
+    0% {
+      opacity: 0.2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+}
+  
+.loading-dots {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+  
+.dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #000000a2;
+    margin: 0 6px;
+    animation: loadingDots 1.4s infinite ease-in-out;
+}
+  
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+  
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#reverseByDate {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}

@@ -1,16 +1,18 @@
-/*
-To Implement:
-Customisation of number of breaths at the start of the cycle
-
-To consider:
-Moving click handlers outside of "BreathingAnimation"
-*/
 
 // Module for managing the breathing animation
 function BreathingAnimation(containerElement, textElement, pointerContainerElement, breathsTextElement, calmingSound) {
-  const totalTime = 19000;
-  const breatheTime = (totalTime / 19) * 4;
-  const holdTime = (totalTime / 19) * 7;
+  //baseline
+  let totalTime;
+  let breatheTime;
+  let secondBreatheTime;
+  let holdTime;
+  let rotateVar;
+
+    totalTime = 19000;
+    breatheTime = (totalTime / 19) * 4;
+    holdTime = (totalTime / 19) * 7;
+    secondBreatheTime = 0;
+    rotateVar = 19;
 
   let animationInterval;
   let holdTimeout;
@@ -20,37 +22,106 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
   let oneWaitTimeout;
   let animationStarted = false;
   let exhaleStart = false;
+  let fixedMode;
   let breathsLeft = 4;
 
+  
+
   function breathAnimation() {
+
     exhaleStart = false;
     breathsTextElement.innerText = breathsLeft;
     textElement.innerText = 'Breathe In!';
-    containerElement.className = 'container grow';
-
+    
     pointerContainerElement.offsetHeight; // Trigger a reflow
-    pointerContainerElement.style.animation = 'rotate 19s linear forwards infinite';
+    pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
+    
+    if (fixedMode == 3){
 
-    holdTimeout = setTimeout(() => {
-      textElement.innerText = 'Hold';
+      containerElement.className = 'container grow3_1';
+      
+      holdTimeout = setTimeout(() => {
+        textElement.innerText = 'Hold';
+        
+       
+        breatheTimeout = setTimeout(() => {
+          textElement.innerText = 'One more sharp breath!';
+          containerElement.className = 'container grow3_2';
+          pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
+      
+          holdTimeout = setTimeout(() => {
+            textElement.innerText = 'Breathe Out!';
+            containerElement.className = 'container shrink';
+            exhaleStart = true;
+            breathsLeft--;
+          }, secondBreatheTime);
+        }, holdTime);
+      }, breatheTime);
+      
 
-      breatheTimeout = setTimeout(() => {
-        textElement.innerText = 'Breathe Out!';
-        containerElement.className = 'container shrink';
-        exhaleStart = true;
-        breathsLeft--;
-      }, holdTime);
-    }, breatheTime);
+      if (breathsLeft <= 0) {
+        redirect();
+        containerElement.removeEventListener('click', clickHandler);
+      }
 
-    if (breathsLeft <= 0) {
-      redirect();
-      containerElement.removeEventListener('click', clickHandler);
-    }
+    } else {
+
+      containerElement.className = 'container grow';
+      holdTimeout = setTimeout(() => {
+        textElement.innerText = 'Hold';
+        
+        containerElement.className = 'container grow';
+        breatheTimeout = setTimeout(() => {
+          
+          pointerContainerElement.style.animation = `rotate ${rotateVar}s linear forwards infinite`;
+      
+          holdTimeout = setTimeout(() => {
+            textElement.innerText = 'Breathe Out!';
+            containerElement.className = 'container shrink';
+            exhaleStart = true;
+            breathsLeft--;
+          }, secondBreatheTime);
+        }, holdTime);
+      }, breatheTime);
+      
+
+      if (breathsLeft <= 0) {
+        redirect();
+        containerElement.removeEventListener('click', clickHandler);
+      }
+  }
   }
 
   function start() {
+  fixedMode = mode.value;  
+    //used ==, if === is used it'll check particularly for int but fixedmode is a number
+    if (fixedMode == 2) {
+      gradientCircle.className = 'gradient-circle2';
+      totalTime = 12000;
+      secondBreatheTime = 0;
+      breatheTime = (totalTime / 12) * 4;
+      holdTime = (totalTime / 12) * 0;
+      rotateVar = 12;
+    } else if (fixedMode == 3) {
+      gradientCircle.className = 'gradient-circle3';
+      secondBreatheTime = 1000;
+      totalTime = 13000;
+      breatheTime = (totalTime / 13) * 3;
+      holdTime = (totalTime / 13) * 1;
+      rotateVar = 13;
+    } else {
+      gradientCircle.className = 'gradient-circle1';
+      totalTime = 19000;
+      breatheTime = (totalTime / 19) * 4;
+      holdTime = (totalTime / 19) * 7;
+      secondBreatheTime = 0;
+      rotateVar = 19;
+    }
+
     calmingSound.play();
     let intialDelay = 5000;
+
+    inputBox.disabled = true;
 
     if (exhaleStart === false) {
       breathsLeft--;
@@ -76,7 +147,6 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       breathAnimation();
       animationInterval = setInterval(breathAnimation, totalTime);
     }, intialDelay);
-    
   }
 
   function pause() {
@@ -94,9 +164,12 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
     animationStarted = false;
     calmingSound.pause();
     calmingSound.load();
+
+    inputBox.disabled = false;
   }
 
   function redirect() {
+    gradientCircle.className = 'gradient-circle';
     pointerContainerElement.style.animation = 'none';
     textElement.innerText = 'finished';
     clearTimeout(holdTimeout);
@@ -130,5 +203,11 @@ const text = document.getElementById('text');
 const pointerContainer = document.querySelector('.pointer-container');
 const breathsText = document.querySelector('.breaths-text');
 const calmingSound = new Audio('assets/calmSound.mp3');
+const mode = document.querySelector('.breath-input');
+const inputBox = document.getElementById('breathe-types');
 
 const breathingAnimation = BreathingAnimation(container, text, pointerContainer, breathsText, calmingSound);
+
+//gradient-circle change
+var gradientCircle = document.getElementById('gradient');
+

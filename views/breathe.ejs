@@ -12,6 +12,15 @@
     <img src="/assets/ChilloutLogo_2.png" alt="Home" class="logoButton" />
   </a>
 
+  <div class="input">
+    <label>Select Mode</label>
+    <select class="breath-input" id="breathe-types">
+      <option value="1">Relax</option>
+      <option value="2">Clarity</option>
+      <option value="3">Energise</option>
+    </select>
+  </div>
+
   <div class="container clickable" id="container">
     <div class="circle"></div>
 
@@ -21,7 +30,7 @@
       <span class="pointer"></span>
     </div>
 
-    <div class="gradient-circle"></div>
+    <div class="gradient-circle" id="gradient"></div>
   </div>
 
   <p class="breaths">Breaths remaining: <span class="breaths-text">0</span></p>

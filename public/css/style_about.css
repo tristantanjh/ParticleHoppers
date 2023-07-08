@@ -1,0 +1,84 @@
+#main {
+    background-image: url(/assets/background.png);
+    height: 100vh;
+    background-position: center;
+}
+
+#login-btn {
+    transition: all 0.3s ease;
+    background-color: #FFFFFF25;
+    border: 0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#login-btn:hover {
+    background-color: #FFFFFF40;
+    border: 0;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.main-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center align the content */
+    justify-content: center; /* Horizontally center align the content */
+    height: 75vh;
+}
+
+.mission-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Vertically center align the content */
+    justify-content: center; /* Horizontally center align the content */
+    height: 50vh;
+}
+
+#begin-btn {
+    transition: all 0.3s ease;
+    background-color: #FFFFFF25;
+    border: 0;
+    border-radius: 50px;
+}
+
+#begin-btn:hover {
+    background-color: #FFFFFF40;
+    border: 0;
+    border-radius: 50px;
+}
+
+.main-text {
+    color: #183049;
+}
+
+.nav-mission {
+    transition: all 0.3s ease;
+}
+
+.nav-mission:hover {
+    -webkit-filter: grayscale(1) invert(0.64);
+    filter: grayscale(1) invert(0.64);
+}
+
+.image-hover img {
+    transition: all 0.3s ease;
+}
+  
+.image-hover img:hover {
+    -webkit-filter: grayscale(1) invert(0.7);
+   filter: grayscale(1) invert(0.7);
+}
+
+h1.truncate {
+    overflow-wrap: break-word;
+    max-width: 50ch;
+}
+
+.vertical-line {
+  border-left: 1px solid #ffffff; /* Pure white color */
+  height: 80%;
+  margin: 0 auto;
+}

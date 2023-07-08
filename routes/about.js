@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, passport } = require('../user');
+const { User, passport } = require('../models/user');
 
 
 // Renders about page

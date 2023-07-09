@@ -221,3 +221,8 @@ p.underline:hover {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+.active {
+    -webkit-filter: grayscale(1) invert(0.64);
+    filter: grayscale(1) invert(0.64);
+}

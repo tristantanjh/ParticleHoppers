@@ -79,10 +79,15 @@
   
 .image-hover img:hover {
     -webkit-filter: grayscale(1) invert(0.7);
-   filter: grayscale(1) invert(0.7);
+    filter: grayscale(1) invert(0.7);
 }
 
 h1.truncate {
     overflow-wrap: break-word;
     max-width: 50ch;
+}
+
+.active {
+    -webkit-filter: grayscale(1) invert(0.64);
+    filter: grayscale(1) invert(0.64);
 }

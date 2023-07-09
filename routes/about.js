@@ -12,8 +12,9 @@ router.get("/", (req, res) => {
                 const username = user.username;
                 res.render("about", {
                     pageTitle: "About",
-                    loginOrQuoteRoute: "/quote",
-                    loginOrQuoteText: "Daily Quote"
+                    loginOrLogoutRoute: "/logout",
+                    loginOrLogoutText: "Logout",
+                    isVisible: true
                 });
             })
             .catch((error) => {
@@ -22,8 +23,9 @@ router.get("/", (req, res) => {
     } else {
         res.render("about", {
             pageTitle: "About",
-            loginOrQuoteRoute: "/login",
-            loginOrQuoteText: "Login"
+            loginOrLogoutRoute: "/login",
+            loginOrLogoutText: "Login",
+            isVisible: false
         });
     }
 });

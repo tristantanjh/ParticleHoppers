@@ -3,14 +3,14 @@ const { app } = require("./config");
 
 // Routes and handlers
 app
-  .use(require('./routes/home'))
-  .use('/logout', require('./routes/logout'))
-  .use('/login', require('./routes/login'))
-  .use('/register', require('./routes/register'))
-  .use('/breathe', require('./routes/breathe'))
-  .use('/quote', require('./routes/quote'))
-  .use('/about', require('./routes/about'))
-  .use('/journal', require('./routes/journal'));
+  .use(require('./controllers/home'))
+  .use('/logout', require('./controllers/logout'))
+  .use('/login', require('./controllers/login'))
+  .use('/register', require('./controllers/register'))
+  .use('/breathe', require('./controllers/breathe'))
+  .use('/quote', require('./controllers/quote'))
+  .use('/about', require('./controllers/about'))
+  .use('/journal', require('./controllers/journal'));
 
 // Catch-all middleware for handling 404 errors
 app.use((req, res, next) => {

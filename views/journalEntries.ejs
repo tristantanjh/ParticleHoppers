@@ -12,7 +12,7 @@
   
     <div class="container">
       <div class="d-flex justify-content-between">
-        <h1 class="d-flex align-items-center display-5 main-text fw-normal"><%= username %>'s journal</h1>
+        <h1 class="d-flex align-items-center display-5 main-text fw-normal" id="journal-title"><%= username %>'s journal</h1>
             <% if (isEntryMissing) { %>
               <a href="/journal/new" class="ml-auto d-flex align-items-center main-text create-entry"  style="text-decoration: none;">
                 <div class="ml-auto d-flex align-items-center main-text">
@@ -73,7 +73,7 @@
                     </div>
                       
                     <!-- Delete Modal -->
-                    <div class="modal fade" id="confirmDeleteModal<%= entry._id %>" tabindex="-1" aria-labelledby="confirmDeleteModalLabel<%= entry._id %>" aria-hidden="true">
+                    <div class="modal fade deleteModal" id="confirmDeleteModal<%= entry._id %>" tabindex="-1" aria-labelledby="confirmDeleteModalLabel<%= entry._id %>" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content custom-modal">
                         <div class="modal-header">
@@ -94,7 +94,7 @@
                     </div>
   
                     <!-- Journal Entry Modal -->
-                    <div class="modal fade" id="journalEntryModal<%= entry._id %>" tabindex="-1" aria-labelledby="journalEntryModalLabel" aria-hidden="true">
+                    <div class="modal fade journalModal" id="journalEntryModal<%= entry._id %>" tabindex="-1" aria-labelledby="journalEntryModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                         <div class="modal-content custom-modal">
                           <div class="modal-header">
@@ -112,7 +112,7 @@
                     </div>
   
                     <!-- Edit Modal -->
-                    <div class="modal fade" id="editModal<%= entry._id %>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal fade editModal" id="editModal<%= entry._id %>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                         <div class="modal-content custom-modal">
                           <div class="modal-header">

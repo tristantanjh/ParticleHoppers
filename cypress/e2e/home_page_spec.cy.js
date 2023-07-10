@@ -63,5 +63,5 @@ describe('Homepage', () => {
 		cy.get('#breather-link').should('contain.text', 'Take a Breather');
 		cy.get('#quote-link').should('contain.text', 'Daily Quote');
 		cy.get('#journal-link').should('contain.text', 'Feelings Journal');
-	  });
+	});
 })

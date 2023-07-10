@@ -1,3 +1,10 @@
+/* 
+    Default Tester Account Details: 
+    Email: test@123.com
+    Username: tester1
+    Password: qwerty
+*/
+
 describe('Registration Page', () => {
     // Test case: Successfully loads register page
     it('successfully loads register page', () => {
@@ -25,7 +32,7 @@ describe('Registration Page', () => {
     it('should display an error message when email and username is already taken', () => {
         // Fill in the registration form with existing email and username fields
         cy.get('input[name="email"]').type('test@123.com');
-        cy.get('input[name="username"]').type('tester');
+        cy.get('input[name="username"]').type('tester1');
         cy.get('input[name="password"]').type('qwerty');
         
         // Submit the form
@@ -60,7 +67,7 @@ describe('Registration Page', () => {
 
         // Fill in the registration form with existing email fields
         cy.get('input[name="email"]').type(email);
-        cy.get('input[name="username"]').type('tester');
+        cy.get('input[name="username"]').type('tester1');
         cy.get('input[name="password"]').type('qwerty');
         
         // Submit the form

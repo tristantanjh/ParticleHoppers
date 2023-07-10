@@ -1,3 +1,10 @@
+/* 
+    Default Tester Account Details: 
+    Email: test@123.com
+    Username: tester1
+    Password: qwerty
+*/
+
 describe('Login', () => {
     // Test case: Successfully loads login page
     it('successfully loads login page', () => {

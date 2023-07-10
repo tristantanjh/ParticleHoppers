@@ -29,10 +29,22 @@ describe('Quote', () => {
         cy.get('p.quoteAuthor').should('not.be.empty');
     });
 
-    // Test case: Navigate to the breathe page from 'take another breather' button
-	it("should navigate to the breathe page from 'take another breather' button", () => {
-		cy.get('#begin-btn').click(); 
+    // Test case: Navigate to the breathe page from 'take a breather' link
+	it("should navigate to the breathe page from 'take a breather' link", () => {
+		cy.get('#breather-link').click(); 
 		cy.url().should('include', '/breathe');
+	});
+
+    // Test case: Navigate to the journal page from 'feelings journal' link
+	it("should navigate to the journal page from 'feelings journal' link", () => {
+		cy.get('#journal-link').click(); 
+		cy.url().should('include', '/journal/entries');
+	});
+
+    // Test case: Stay at same page on clicking 'daily quote' link
+	it("should stay at same page on clicking 'daily quote' link", () => {
+		cy.get('#quote-link').click(); 
+		cy.url().should('include', '/quote');
 	});
 
     // Test case: Navigate to the home page on clicking logo

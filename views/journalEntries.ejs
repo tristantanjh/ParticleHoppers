@@ -55,14 +55,14 @@
               <% entries.forEach(entry => { %>
                 <tr>
                   <td>
-                    <p class="m-0 underline" data-bs-toggle="modal" data-bs-target="#journalEntryModal<%= entry._id %>"><strong>
+                    <p class="m-0 underline entry-title" data-bs-toggle="modal" data-bs-target="#journalEntryModal<%= entry._id %>"><strong>
                       <% if (entry.title.length > 40) { %>
                         <%= entry.title.slice(0, 40) + "..." %>
                       <% } else { %>
                         <%= entry.title %>
                       <% } %>
                       </strong></p>
-                    <p class="m-0">
+                    <p class="m-0 entry-content">
                       <% if (entry.content.length > 40) { %>
                         <%= entry.content.slice(0, 40) + "..." %>
                       <% } else { %>

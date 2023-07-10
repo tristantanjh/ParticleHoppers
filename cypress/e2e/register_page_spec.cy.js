@@ -79,7 +79,7 @@ describe('Registration Page', () => {
 
     // Test case: Register a new user and redirect to the home page
     it('should register a new user and redirect to home page', () => {
-      // Generate a unique timestamp as identifier
+        // Generate a unique timestamp as identifier
         const uniqueId = Date.now();
         const email = `testuser${uniqueId}@example.com`;
         const password = "qwerty";

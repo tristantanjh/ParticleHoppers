@@ -2,21 +2,7 @@
 
 <body>
   <section id="main" class="py-0">
-    <div class="container">
-      <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
-        <ul class="nav nav-pills align-items-center">
-          <% if (isVisible === true) { %>
-            <li class="nav-item"><a href="/breathe" class="text-white nav-link nav-mission mission-topnav">Take a Breather</a></li>
-            <li class="nav-item"><a href="/quote" class="text-white nav-link nav-mission mission-topnav">Daily Quote</a></li>
-            <li class="nav-item"><a href="/journal/entries" class="text-white nav-link nav-mission mission-topnav">Feelings Journal</a></li>
-          <% } %>
-          <li class="nav-item"><a href="<%= loginOrLogoutRoute %>" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary"><%= loginOrLogoutText %></button></a></li>
-          <a href="/" class="image-hover">
-            <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
-          </a>
-        </ul>
-      </header>
-    </div>
+    <%- include("partials/home_nav") %>
 
     <div class="px-4 py-5 mb-5 text-center main-cont">
       <h1 class="display-5 main-text fw-normal mainText"><%= mainText %></h1>

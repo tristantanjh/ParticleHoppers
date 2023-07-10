@@ -8,14 +8,26 @@
   </div>
 
   <main id="main-content">
-    <%- include("partials/logged_in_nav") %>
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
+        <ul class="nav nav-pills align-items-center">
+          <li class="nav-item"><a href="/breathe" class="text-white nav-link nav-mission mission-topnav" id="breather-link">Take a Breather</a></li>
+          <li class="nav-item"><a href="/quote" class="text-white nav-link nav-mission mission-topnav" id="quote-link">Daily Quote</a></li>
+          <li class="nav-item"><a href="/journal/entries" class="text-white nav-link mission-topnav" id="journal-link"><span class="active">Feelings Journal</span></a></li>
+          <li class="nav-item"><a href="/logout" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary">Logout</button></a></li>
+          <a href="/" class="image-hover">
+            <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
+          </a>
+        </ul>
+      </header>
+    </div>
   
     <div class="container">
       <div class="d-flex justify-content-between">
         <h1 class="d-flex align-items-center display-5 main-text fw-normal" id="journal-title"><%= username %>'s journal</h1>
             <% if (isEntryMissing) { %>
               <a href="/journal/new" class="ml-auto d-flex align-items-center main-text create-entry"  style="text-decoration: none;">
-                <div class="ml-auto d-flex align-items-center main-text">
+                <div class="ml-auto d-flex align-items-center main-text" id="todays-entry">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                   </svg>
@@ -103,8 +115,8 @@
                           </div>
                           <div class="modal-body">
                             <div class="form-group mb-3">
-                              <h4 class="display-8 main-text fw-bold" style="word-wrap: break-word;"><%= entry.title %></h4>
-                              <p class="lead main-text fw-normal text-wrap" style="word-wrap: break-word;"><%= entry.content %></p>
+                              <h4 class="display-8 main-text fw-bold" style="word-wrap: break-word;" id="entryTitle"><%= entry.title %></h4>
+                              <p class="lead main-text fw-normal text-wrap" style="word-wrap: break-word;" id="entryContent"><%= entry.content %></p>
                             </div>
                           </div>
                         </div>

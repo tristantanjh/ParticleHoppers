@@ -2,7 +2,19 @@
 
 <body>
     <section id="main" class="py-0">
-      <%- include("partials/logged_in_nav") %>
+      <div class="container">
+        <header class="d-flex flex-wrap justify-content-md-end  justify-content-center py-3 mb-4 border-bottom">
+          <ul class="nav nav-pills align-items-center">
+            <li class="nav-item"><a href="/breathe" class="text-white nav-link nav-mission mission-topnav" id="breather-link">Take a Breather</a></li>
+            <li class="nav-item"><a href="/quote" class="text-white nav-link mission-topnav"  id="quote-link"><span class="active">Daily Quote</span></a></li>
+            <li class="nav-item"><a href="/journal/entries" class="text-white nav-link nav-mission mission-topnav" id="journal-link">Feelings Journal</a></li>
+            <li class="nav-item"><a href="/logout" class="nav-link"><button type="button" id="login-btn" class="btn btn-secondary">Logout</button></a></li>
+            <a href="/" class="image-hover">
+              <img src="/assets/ChilloutLogo_2.png" alt="ChillOut Logo" class="px-3" height="40px">
+            </a>
+          </ul>
+        </header>
+      </div>
     
       <div class="px-4 py-5 mb-5 text-center main-cont">
         <h1 class="display-5 main-text fw-normal quote truncate"><%= quote %></h1>

@@ -175,6 +175,7 @@ describe("Journal Entries (Default Test User with Prepopulated Entries)", () => 
             .should('not.be.empty');
     });
 
+    // Test case: Only allows editing of entries submitted today
     it('should only allow editing of entries submitted today', () => {
         // Find the entry submitted today in the table
         cy.get('#tableBody')
@@ -193,8 +194,8 @@ describe("Journal Entries (Default Test User with Prepopulated Entries)", () => 
           });
       });
 
-    // Test case: Checks whether today\'s entry is filled. if found, create today\'s entry should be visible, and upon clicking should redirect to create entry page
-    it('should check whether today\'s entry is filled. if found, create today\'s entry should be visible, and upon clicking should redirect to create entry page', () => {
+    // Test case: Checks whether today\'s entry is filled. if found, create today\'s entry section should be visible, and upon clicking should redirect to create entry page
+    it('should check whether today\'s entry is filled. if found, create today\'s entry section should be visible, and upon clicking should redirect to create entry page', () => {
         // Get today's date
         const today = new Date().toDateString();
     
@@ -369,7 +370,7 @@ describe("Journal Entries (New User with No Existing Entries)", () => {
         // Click the first delete SVG in the entry list
         cy.get('.bi-trash3').first().click();
     
-        // Assert that the delete modal is visible
+        // Assert that the delete modal is visible and confirm deletion of entry
         cy.get('.deleteModal')
             .should('be.visible')
             .find('.btn-danger')

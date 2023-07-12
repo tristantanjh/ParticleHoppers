@@ -102,6 +102,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       breatheTime = (totalTime / 12) * 4;
       holdTime = (totalTime / 12) * 0;
       rotateVar = 12;
+      claritySound.play();
     } else if (fixedMode == 3) {
       gradientCircle.className = 'gradient-circle3';
       secondBreatheTime = 1000;
@@ -109,6 +110,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       breatheTime = (totalTime / 13) * 3;
       holdTime = (totalTime / 13) * 1;
       rotateVar = 13;
+      energizeSound.play();
     } else {
       gradientCircle.className = 'gradient-circle1';
       totalTime = 19000;
@@ -116,9 +118,10 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       holdTime = (totalTime / 19) * 7;
       secondBreatheTime = 0;
       rotateVar = 19;
+      calmingSound.play();
     }
 
-    calmingSound.play();
+    
     let intialDelay = 5000;
 
     inputBox.disabled = true;
@@ -162,8 +165,19 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
     clearTimeout(oneWaitTimeout);
     clearTimeout(executeAnimation);
     animationStarted = false;
-    calmingSound.pause();
-    calmingSound.load();
+    
+    //pause sound and restart it
+    if (fixedMode == 2) {
+      claritySound.pause();
+      claritySound.load();
+    } else if (fixedMode == 3) {
+      energizeSound.pause();
+      energizeSound.load();
+    } else {
+      calmingSound.pause();
+      calmingSound.load();
+  
+    }
 
     inputBox.disabled = false;
   }
@@ -203,6 +217,8 @@ const text = document.getElementById('text');
 const pointerContainer = document.querySelector('.pointer-container');
 const breathsText = document.querySelector('.breaths-text');
 const calmingSound = new Audio('assets/calmSound.mp3');
+const energizeSound = new Audio('assets/EnergizeSound.mp3');
+const claritySound = new Audio('assets/claritySound.mp3');
 const mode = document.querySelector('.breath-input');
 const inputBox = document.getElementById('breathe-types');
 

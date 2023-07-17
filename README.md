@@ -1,4 +1,4 @@
-# ParticleHoppers
+# ParticleHoppers - ChillOut
 
 ## Summary
 A user-friendly, all-in-one web application for mental wellbeing, offering guided breathing exercises, daily affirmations, and a supportive community.
@@ -9,16 +9,29 @@ A user-friendly, all-in-one web application for mental wellbeing, offering guide
 
 ## Team Details
 - Team ID: 5786
-- Proposed Proposed Level of Achievement: Project Gemini
+- Proposed Level of Achievement: Project Apollo
 
 ## Links to Project Materials
+:link: [Deployed Website](deployable.onrender.com) <br />
+- Test account email: test@123.com <br />
+- Test account password: qwerty <br />
+- Important Note: 
+Due to the utilisation of Render’s free tier plan, we have no control over the startup timing of the application as a result of their cold start feature. Please note that there might be occasional server inactivity when accessing the site. This is due to the limitations of our hosting plan. We appreciate your patience and suggest <strong>giving the site some time (2-3 mins) to load properly.</strong> Thank you for your understanding! Please do feel free to sign up and register for an account as well.  <br /> 
+
+:link: [Full Project Report](https://docs.google.com/document/d/1ctNVm1ha0iiPmlu6EHwB36X8JLEnm9yRs0PH3Cgq8eE/edit?usp=sharing) <br />
 :link: [Project Log](https://docs.google.com/spreadsheets/d/1cML4a_aWpPTm2hQLwyhGzjmt5MItagE3rgn5ERFA23M/edit?usp=sharing) <br />
 #### Milestone 1:
 :link: [Project Poster](https://drive.google.com/file/d/1wKMOjY1evthR4v6OxI13As8c7c-RTsiU/view?usp=share_link) <br />
 :link: [Project Video](https://drive.google.com/file/d/1SaEuSlFxoPv6LiglToKESfpwx5Rzdj6P/view?usp=share_link) <br />
 :link: [Figma Mockup](https://www.figma.com/proto/GEaP6orIS4Les171C551vj/Mockups?node-id=1-55&starting-point-node-id=1%3A55) <br />
+#### Milestone 2:
+:link: [Project Poster](https://drive.google.com/file/d/19XQvNEd_dZurZDhpaZOCWUK7JK3FbVZk/view?usp=sharing) <br />
+:link: [Project Video](https://drive.google.com/file/d/11Gqw2FP7n--oqbPxiMS8DrcF7V3fryTF/view) <br />
+#### Milestone 3:
+:link: [Project Poster]() <br />
+:link: [Project Video]() <br />
 
-## Installation
+## Installation (For Developers)
 - Install Node.js from their [website](https://nodejs.org/en).
 - Install Nodemon (if not already installed):
 ```bash
@@ -32,14 +45,14 @@ npm install
 nodemon
 ```
 - Follow the steps in the `.env.example` file before proceeding.
-- Finally, explore our app by going to `localhost:3000` in your browser!
+- Finally, view the app by going to `localhost:3000` in your browser.
 
 ---
 
 ### Motivation
-The transition from a more relaxed lifestyle to the fast-paced environment of university can be challenging for many freshmen.  University life is often characterized by demanding coursework, tight schedules, and competing priorities, which can be overwhelming for students who are not used to it. The sudden increase in pace of life can be particularly challenging for students in academically rigorous courses, who may find it difficult to keep up with the demanding workload.
+The fast-paced nature of modern society, coupled with demanding work environments, personal responsibilities, and societal pressures, can lead to overwhelming feelings and have a profound impact on mental health.
 
-Moreover, many students may not be equipped with the necessary tools to manage their stress and anxiety effectively. They may not have had previous experiences dealing with high-pressure situations or may have relied on different coping mechanisms before entering university. The lack of preparation can exacerbate feelings of being overwhelmed, leading to stress and anxiety.
+The motivation behind developing this mental health application is to address these widespread challenges and offer support to individuals from diverse backgrounds. By providing accessible resources and tools, the application aims to empower users with effective coping mechanisms and strategies to effectively manage stress and anxiety, promoting mental well-being irrespective of age, occupation, or educational background.
 
 ### Aim
 Our aim is to ensure that mental health resources and tools for managing mental health are as easily accessible and user-friendly as possible.
@@ -50,24 +63,18 @@ Our aim is to ensure that mental health resources and tools for managing mental 
 - As a student who is experiencing new environments and schedules, I want to have an easy way to pen down my jumbled thoughts to help me understand them more clearly.
 - As a student who frequently feels overwhelmed, I would like to take periodic mental breaks to reflect and to take small steps back to reflect and assess my current situation holistically, which will allow me to gain a more positive outlook and cope better with the challenges I face.
 
-### Features and Timeline
-We propose the development of a mental health mobile application that will provide users with two essential features to improve their well-being: meditation exercises, and daily affirmations. The app aims to promote self-awareness, mindfulness, and positivity in users.
-
-The first feature, meditation exercises, will offer users guided meditation practices that are designed to reduce stress, anxiety, and depression. The app will provide a range of meditation sessions that cater to different needs and preferences. Users can choose from a variety of guided meditations, including mindfulness or breathing exercises.
-
-The second feature, daily affirmations, will provide users with positive messages that they can use to start their day on a positive note. The app will offer a selection of affirmations that users can choose from, and they can customize their own affirmations if they prefer. This will help users to boost their self esteem, as well as reducing their stress and anxiety levels.
-
-The meditation exercises and daily affirmations are to be implemented maximally by mid June, such that we can dedicate July to any further possible additions in features, or debugging and refining of the application. In the last few weeks up until the deadline, we intend to connect our application to a database which allows users to sign up and log in to track their activity.
+### Features
+- Breathing exercises: Mindful practices for relaxation, stress reduction, and emotional balance. Suitable for users of all levels, empowering proactive self-care and mindfulness.
+- Daily affirmations: Daily dose of inspiration, positivity, and encouragement to support mental well-being. Carefully selected messages that resonate with users and promote a positive mindset.
+- Journaling: Personal journal for self-reflection and expression. Capture daily moments, reflections, and events. Limited editing to foster authenticity and present-moment expression. Review past entries for growth, self-awareness, and valuable insights over time.
 
 ### How are we different from similar platforms?
 
-- Format and Flow of application
-
+- <strong>Format and Flow of application</strong>
   - We aim to make our app as simple as possible to use, with a streamlined and linear flow that prevents overwhelming users with information. By prioritizing user experience, we ensure that navigating our app feels intuitive and effortless, allowing you to focus on your journey towards inner balance and serenity. 
 
-- Choice of mindfulness activities
-
-  - Our unique combination of guided breathing exercises, daily affirmations along with a supportive community, creates a harmonious and user-friendly space for the user’s mental wellbeing needs.
+- <strong>Choice of mindfulness activities</strong>
+  - Our unique combination of guided breathing exercises, daily affirmations along with personal journaling, creates a harmonious and user-friendly space for the user’s mental wellbeing needs.
 
 ### Tech Stack
 | Tech | Purpose | Reason For Choice | Category |
@@ -80,33 +87,3 @@ The meditation exercises and daily affirmations are to be implemented maximally 
 | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) | Back-End web application framework for server-side development. | - Ability to use JavaScript for both client-side and server-side development for seamless development. </br></br> - Offers an extensive ecosystem with numerous developer-friendly features. | Framework |
 | ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) | Distributed version control system used for tracking changes in source code. | - Allows for easy tracking and managing changes to source code over time. </br></br> - Enables seamless collaboration among our developers working on the same project. | Version Control |
 | ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) | Cloud hosting platform that simplifies the deployment and management of web applications. | - Provides infrastructure and automation tools to easily deploy applications to various cloud providers, ensuring scalability, reliability, and ease of maintenance. </br></br> - It provides a free tier, making it cost-effective for us to deploy and run our applications on the internet. | Server Hosting |
-
-### Timeline and Executables
-- 3rd week of May: Finalized pitch for Orbital Lift-off
-- 4th week of May: Created Mockup
-- 5th week of May: Pick up necessary technologies - Nodejs, Expressjs, Firebase
-- 1st week of June: Finalized minimum data sets and do diagrams
-- 2nd week of June: Start building database (collection of user login details)
-- 3rd week of June: Expand on features of website (Breathing exercise, Daily quotes)
-- 4th week of June: Testing and debugging
-- 1st week of July: Implementation of peer teams’ suggestions
-- 2nd week of July: Implement additional capabilities 
-- 3rd week of July: Testing and debugging
-
-### Mockups and Technical Proof
-#### Mockup and Flow
-![Mockup](https://drive.google.com/uc?export=view&id=1SNqg1pd1vwzpWkT5gAW3eBN-s7L188Gy)
-
-#### Landing and Login Pages
-![Home Page](https://drive.google.com/uc?export=view&id=1F1Hy0LL_bXp2AhKbZUpv0fUTJwa_TDIz)
-![Sign Up](https://drive.google.com/uc?export=view&id=1dFurgurD4PW5HbWTLjvT7Tm8ymriw_I1)
-![Log In](https://drive.google.com/uc?export=view&id=12ECMO7rFvHTxC8J8DQedXLzc5xy5x4hD)
-
-
-
-
-
-
-
-
-

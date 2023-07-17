@@ -1,4 +1,4 @@
-<a href="deployable.onrender.com">
+<a href="https://deployable.onrender.com">
     <img src="/public/assets/logo-with-name.png" alt="Chillouit logo" title="Chillout" align="right" height="120" />
 </a>
 

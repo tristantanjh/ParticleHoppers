@@ -1,7 +1,11 @@
-# ParticleHoppers - ChillOut
+<a href="deployable.onrender.com">
+    <img src="/public/assets/logo-with-name.png" alt="Chillouit logo" title="Chillout" align="right" height="120" />
+</a>
+
+# ParticleHoppers - Chillout
 
 ## Summary
-A user-friendly, all-in-one web application for mental wellbeing, offering guided breathing exercises, daily affirmations, and a supportive community.
+<strong>Chillout</strong> is a user-friendly, all-in-one web application for mental wellbeing, offering guided breathing exercises, daily affirmations, and a supportive community. Made for NUS' Summer Module - Orbital 2023.
 
 ## Project Members
 - [Tristan Tan](https://github.com/tristantanjh)
@@ -15,10 +19,10 @@ A user-friendly, all-in-one web application for mental wellbeing, offering guide
 :link: [Deployed Website](deployable.onrender.com) <br />
 - Test account email: test@123.com <br />
 - Test account password: qwerty <br />
-- Important Note: 
-Due to the utilisation of Render’s free tier plan, we have no control over the startup timing of the application as a result of their cold start feature. Please note that there might be occasional server inactivity when accessing the site. This is due to the limitations of our hosting plan. We appreciate your patience and suggest <strong>giving the site some time (2-3 mins) to load properly.</strong> Thank you for your understanding! Please do feel free to sign up and register for an account as well.  <br /> 
+- <strong>Important Note: </strong>
+Due to the utilisation of Render’s free tier plan, <strong>give the site some time (2-3 mins) to load properly.</strong> Thank you for your understanding! Please do feel free to sign up and register for an account as well.  <br /> 
 
-:link: [Full Project Report](https://docs.google.com/document/d/1ctNVm1ha0iiPmlu6EHwB36X8JLEnm9yRs0PH3Cgq8eE/edit?usp=sharing) <br />
+:link: [Full Project Report](https://docs.google.com/document/d/1ctNVm1ha0iiPmlu6EHwB36X8JLEnm9yRs0PH3Cgq8eE/edit?usp=sharing) - For in-depth explanations of our vision, features, code testing, and more.<br />
 :link: [Project Log](https://docs.google.com/spreadsheets/d/1cML4a_aWpPTm2hQLwyhGzjmt5MItagE3rgn5ERFA23M/edit?usp=sharing) <br />
 #### Milestone 1:
 :link: [Project Poster](https://drive.google.com/file/d/1wKMOjY1evthR4v6OxI13As8c7c-RTsiU/view?usp=share_link) <br />

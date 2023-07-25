@@ -32,8 +32,8 @@ Due to the utilisation of Render’s free tier plan, <strong>give the site some 
 :link: [Project Poster](https://drive.google.com/file/d/19XQvNEd_dZurZDhpaZOCWUK7JK3FbVZk/view?usp=sharing) <br />
 :link: [Project Video](https://drive.google.com/file/d/11Gqw2FP7n--oqbPxiMS8DrcF7V3fryTF/view) <br />
 #### Milestone 3:
-:link: [Project Poster]() <br />
-:link: [Project Video]() <br />
+:link: [Project Poster](https://drive.google.com/file/d/1LWY8PFbQ5E8nlqPsBKVaFH6d9lxM71k7/view?usp=sharing) <br />
+:link: [Project Video](https://www.youtube.com/watch?v=xPoQzFMqKyE) <br />
 
 ## Installation (For Developers)
 - Install Node.js from their [website](https://nodejs.org/en).

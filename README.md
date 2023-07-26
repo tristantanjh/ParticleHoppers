@@ -1,4 +1,4 @@
-<a href="https://deployable.onrender.com">
+<a href="https://deployable.onrender.com" target="_blank">
     <img src="/public/assets/logo-with-name.png" alt="Chillout logo" title="Chillout" align="right" height="120" />
 </a>
 
@@ -14,8 +14,8 @@ Made for NUS' CP2106 - Independent Software Development Project (Orbital) 2023.
 ![homepage](https://github.com/tristantanjh/ParticleHoppers/assets/99729861/e07a6ebd-1d84-4ee6-82e7-2d3c7c68d695)
 
 ## Project Members
-- [Tristan Tan](https://github.com/tristantanjh)
-- [Ang Jon Ming](https://github.com/jon3r4de)
+- <a href="https://github.com/tristantanjh" target="_blank">Tristan Tan</a>
+- <a href="https://github.com/jon3r4de" target="_blank">Ang Jon Ming</a>
 
 ## Team Details
 - Team ID: 5786
@@ -23,14 +23,14 @@ Made for NUS' CP2106 - Independent Software Development Project (Orbital) 2023.
 
 ## Links to Project Materials
 
-### :link: [Deployed Website](https://deployable.onrender.com) <br />
+### :link: <a href="https://deployable.onrender.com" target="_blank">Deployed Website</a> <br />
 - Test account email: test@123.com <br />
 - Test account password: qwerty <br />
 - <strong>Important Note: </strong>
 Due to the utilisation of Render’s free tier plan, <strong>give the site some time (2-3 mins) to load properly.</strong> Thank you for your understanding! Please do feel free to sign up and register for an account as well.  <br /> 
 
-:link: [Full Project Report](https://docs.google.com/document/d/1ctNVm1ha0iiPmlu6EHwB36X8JLEnm9yRs0PH3Cgq8eE/edit?usp=sharing) - For in-depth explanations of our vision, features, code testing, and more.<br />
-:link: [Project Log](https://docs.google.com/spreadsheets/d/1cML4a_aWpPTm2hQLwyhGzjmt5MItagE3rgn5ERFA23M/edit?usp=sharing) <br />
+:link: <a href="https://docs.google.com/document/d/1ctNVm1ha0iiPmlu6EHwB36X8JLEnm9yRs0PH3Cgq8eE/edit?usp=sharing" target="_blank">Full Project Report</a> - For in-depth explanations of our vision, features, code testing, and more.<br />
+:link: <a href="https://docs.google.com/spreadsheets/d/1cML4a_aWpPTm2hQLwyhGzjmt5MItagE3rgn5ERFA23M/edit?usp=sharing" target="_blank">Project Log</a> <br />
 #### Milestone 1:
 :link: [Project Poster](https://drive.google.com/file/d/1wKMOjY1evthR4v6OxI13As8c7c-RTsiU/view?usp=share_link) <br />
 :link: [Project Video](https://drive.google.com/file/d/1SaEuSlFxoPv6LiglToKESfpwx5Rzdj6P/view?usp=share_link) <br />

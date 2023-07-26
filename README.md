@@ -1,11 +1,17 @@
 <a href="https://deployable.onrender.com">
-    <img src="/public/assets/logo-with-name.png" alt="Chillouit logo" title="Chillout" align="right" height="120" />
+    <img src="/public/assets/logo-with-name.png" alt="Chillout logo" title="Chillout" align="right" height="120" />
 </a>
 
-# ParticleHoppers - Chillout
+# ParticleHoppers - Chillout <br /> 
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 
 ## Summary
-<strong>Chillout</strong> is a user-friendly, all-in-one web application for mental wellbeing, offering guided breathing exercises, daily affirmations, and a supportive community. Made for NUS' Summer Module - Orbital 2023.
+<strong>Chillout</strong> is a user-friendly, all-in-one web application for mental wellbeing, offering guided breathing exercises, daily affirmations, and a supportive community.
+
+Made for NUS' CP2106 - Independent Software Development Project (Orbital) 2023.
+
+![homepage](https://github.com/tristantanjh/ParticleHoppers/assets/99729861/e07a6ebd-1d84-4ee6-82e7-2d3c7c68d695)
 
 ## Project Members
 - [Tristan Tan](https://github.com/tristantanjh)
@@ -16,7 +22,8 @@
 - Proposed Level of Achievement: Project Apollo
 
 ## Links to Project Materials
-:link: [Deployed Website](https://deployable.onrender.com) <br />
+
+### :link: [Deployed Website](https://deployable.onrender.com) <br />
 - Test account email: test@123.com <br />
 - Test account password: qwerty <br />
 - <strong>Important Note: </strong>
@@ -61,16 +68,18 @@ The motivation behind developing this mental health application is to address th
 ### Aim
 Our aim is to ensure that mental health resources and tools for managing mental health are as easily accessible and user-friendly as possible.
 
-### User Stories
-- As a schooling student who is under a lot of stress, having to juggle between assignments, examinations, extracurriculars, and others, I want to be able to have a simple to use platform where I can easily regulate my stress and regain the motivation to continue on.
-- As someone struggling with mental health issues, I want to be able to have ready access to sufficient and quality resources to help me tackle them.
-- As a student who is experiencing new environments and schedules, I want to have an easy way to pen down my jumbled thoughts to help me understand them more clearly.
-- As a student who frequently feels overwhelmed, I would like to take periodic mental breaks to reflect and to take small steps back to reflect and assess my current situation holistically, which will allow me to gain a more positive outlook and cope better with the challenges I face.
-
 ### Features
 - Breathing exercises: Mindful practices for relaxation, stress reduction, and emotional balance. Suitable for users of all levels, empowering proactive self-care and mindfulness.
+
+<img src=https://github.com/tristantanjh/ParticleHoppers/assets/99729861/28e4940a-3318-4359-9944-89bb7b7a4c14 width=1000> <br />
+
 - Daily affirmations: Daily dose of inspiration, positivity, and encouragement to support mental well-being. Carefully selected messages that resonate with users and promote a positive mindset.
+
+<img src=https://github.com/tristantanjh/ParticleHoppers/assets/99729861/eac3d7b7-5a81-4285-a607-6bf3436c5318 width=1000> <br />
+
 - Journaling: Personal journal for self-reflection and expression. Capture daily moments, reflections, and events. Limited editing to foster authenticity and present-moment expression. Review past entries for growth, self-awareness, and valuable insights over time.
+
+<img src=https://github.com/tristantanjh/ParticleHoppers/assets/99729861/11014c84-c32d-464c-aae5-e8b295af220d width=1000> <br />
 
 ### How are we different from similar platforms?
 
@@ -91,3 +100,4 @@ Our aim is to ensure that mental health resources and tools for managing mental 
 | ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) | Back-End web application framework for server-side development. | - Ability to use JavaScript for both client-side and server-side development for seamless development. </br></br> - Offers an extensive ecosystem with numerous developer-friendly features. | Framework |
 | ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) | Distributed version control system used for tracking changes in source code. | - Allows for easy tracking and managing changes to source code over time. </br></br> - Enables seamless collaboration among our developers working on the same project. | Version Control |
 | ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white) | Cloud hosting platform that simplifies the deployment and management of web applications. | - Provides infrastructure and automation tools to easily deploy applications to various cloud providers, ensuring scalability, reliability, and ease of maintenance. </br></br> - It provides a free tier, making it cost-effective for us to deploy and run our applications on the internet. | Server Hosting |
+| ![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e) | Open-source end-to-end testing framework used for testing web applications.  | Allows for end-to-end tests that simulate real user interactions with a web application. It interacts with elements on the page, click buttons, fill out forms, and validate the application's behaviour. | Testing |

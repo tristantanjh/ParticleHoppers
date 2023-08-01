@@ -96,6 +96,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
   fixedMode = mode.value;  
     //used ==, if === is used it'll check particularly for int but fixedmode is a number
     if (fixedMode == 2) {
+      breathsLeft = 4;
       gradientCircle.className = 'gradient-circle2';
       totalTime = 12000;
       secondBreatheTime = 0;
@@ -104,6 +105,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       rotateVar = 12;
       claritySound.play();
     } else if (fixedMode == 3) {
+      breathsLeft = 4;
       gradientCircle.className = 'gradient-circle3';
       secondBreatheTime = 1000;
       totalTime = 13000;
@@ -112,6 +114,7 @@ function BreathingAnimation(containerElement, textElement, pointerContainerEleme
       rotateVar = 13;
       energizeSound.play();
     } else {
+      breathsLeft = 4;
       gradientCircle.className = 'gradient-circle1';
       totalTime = 19000;
       breatheTime = (totalTime / 19) * 4;
